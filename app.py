@@ -1,11 +1,11 @@
 import lmstudio as lms
 
 model = lms.llm()
-chat = lms.Chat("You are a task focused AI assistant")
+chat = lms.Chat()
 
 while True:
     try:
-        user_input = input("You (leave blank to exit): ")
+        user_input = input("Запрос: ")
     except EOFError:
         print()
         break
