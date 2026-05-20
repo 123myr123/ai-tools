@@ -21,7 +21,9 @@ def print_fragment(fragment, round_index=0):
 model = lms.llm()
 chat = lms.Chat("ты ии ассистент. Ответы на вопросы пользователя всегда должны быть на русском")
 mode = int(input("Выберите режим 1 инструменты. 2 Фото"))
-if mode == 1:
+while True:
+    mode = int(input("Выберите режим 1 инструменты. 2 Фото"))
+    if mode == 1:
         while True:
     
             try:
@@ -40,16 +42,16 @@ if mode == 1:
                 on_prediction_fragment=print_fragment,
             )
             print()
-else:
-    image_path = input("Введите путь к фото:") # Replace with the path to your image
-    image_handle = lms.prepare_image(image_path)
-    user_input = input("cообщение:")
-    chat.add_user_message(user_input, images=[image_handle])
-    prediction_stream = model.respond_stream(
-        chat,
-        on_message=chat.append,
-    )
-    print("Bot: ", end="", flush=True)
-    for fragment in prediction_stream:
-        print(fragment.content, end="", flush=True)
-    print()
+    else:
+        image_path = input("Введите путь к фото:") # Replace with the path to your image
+        image_handle = lms.prepare_image(image_path)
+        user_input = input("cообщение:")
+        chat.add_user_message(user_input, images=[image_handle])
+        prediction_stream = model.respond_stream(
+            chat,
+            on_message=chat.append,
+        )
+        print("Bot: ", end="", flush=True)
+        for fragment in prediction_stream:
+            print(fragment.content, end="", flush=True)
+        print()
