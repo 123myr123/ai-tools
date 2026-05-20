@@ -19,7 +19,7 @@ def print_fragment(fragment, round_index=0):
     # compatible with .complete() and .respond().
     print(fragment.content, end="", flush=True)
 model = lms.llm()
-chat = lms.Chat("You are a task focused AI assistant")
+chat = lms.Chat("ты ии ассистент. Ответы на вопросы пользователя всегда должны быть на русском")
 mode = int(input("Выберите режим 1 инструменты. 2 Фото"))
 if mode == 1:
         while True:
@@ -41,4 +41,15 @@ if mode == 1:
             )
             print()
 else:
-    print("гОООД")
+    image_path = input("Введите путь к фото") # Replace with the path to your image
+    image_handle = lms.prepare_image(image_path)
+    user_input = input("cообщение:")
+    chat.add_user_message("Describe this image please", images=[image_handle])
+    prediction_stream = model.respond_stream(
+        chat,
+        on_message=chat.append,
+    )
+    print("Bot: ", end="", flush=True)
+    for fragment in prediction_stream:
+        print(fragment.content, end="", flush=True)
+    print()
