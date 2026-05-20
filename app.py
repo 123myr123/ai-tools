@@ -1,22 +1,44 @@
+from pathlib import Path
 import lmstudio as lms
-
-model = lms.llm()
-chat = lms.Chat()
-
-while True:
+def multiply(a: float, b: float) -> float:
+    """Given two numbers a and b. Returns the product of them."""
+    return a * b
+def create_file(name: str, content: str):
+    """Create a file with the given name and content."""
+    dest_path = Path(name)
+    if dest_path.exists():
+        return "Error: File already exists."
     try:
-        user_input = input("Запрос: ")
-    except EOFError:
-        print()
-        break
-    if not user_input:
-        break
-    chat.add_user_message(user_input)
-    prediction_stream = model.respond_stream(
-        chat,
-        on_message=chat.append,
-    )
-    print("Bot: ", end="", flush=True)
-    for fragment in prediction_stream:
-        print(fragment.content, end="", flush=True)
-    print()
+        dest_path.write_text(content, encoding="utf-8")
+    except Exception as exc:
+        return "Error: {exc!r}"
+    return "File created."
+def print_fragment(fragment, round_index=0):
+    # .act() supplies the round index as the second parameter
+    # Setting a default value means the callback is also
+    # compatible with .complete() and .respond().
+    print(fragment.content, end="", flush=True)
+model = lms.llm()
+chat = lms.Chat("You are a task focused AI assistant")
+mode = int(input("Выберите режим 1 инструменты. 2 Фото"))
+if mode == 1:
+        while True:
+    
+            try:
+                user_input = input("сообщение:")
+            except EOFError:
+                print()
+                break
+            if not user_input:
+                break
+            chat.add_user_message(user_input)
+            print("Bot: ", end="", flush=True)
+            model.act(
+                chat,
+                [create_file, multiply],
+                on_message=chat.append,
+                on_prediction_fragment=print_fragment,
+            )
+            print()
+else:
+    print("гОООД")
