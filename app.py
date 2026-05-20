@@ -41,10 +41,10 @@ if mode == 1:
             )
             print()
 else:
-    image_path = input("Введите путь к фото") # Replace with the path to your image
+    image_path = input("Введите путь к фото:") # Replace with the path to your image
     image_handle = lms.prepare_image(image_path)
     user_input = input("cообщение:")
-    chat.add_user_message("Describe this image please", images=[image_handle])
+    chat.add_user_message(user_input, images=[image_handle])
     prediction_stream = model.respond_stream(
         chat,
         on_message=chat.append,
