@@ -1,5 +1,14 @@
 from pathlib import Path
 import lmstudio as lms
+def write_file(name: str, content: str):
+    """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
+    file = open(name,'w', encoding='utf-8')
+    file.write(content)
+    file.close
+def read_file(name: str):
+    """Read the specified file. Returns the file contents."""
+    file = open(name)
+    return file.read()
 def multiply(a: float, b: float) -> float:
     """Given two numbers a and b. Returns the product of them."""
     return a * b
@@ -20,7 +29,6 @@ def print_fragment(fragment, round_index=0):
     print(fragment.content, end="", flush=True)
 model = lms.llm()
 chat = lms.Chat("ты ии ассистент. Ответы на вопросы пользователя всегда должны быть на русском")
-mode = int(input("Выберите режим 1 инструменты. 2 Фото"))
 while True:
     mode = int(input("Выберите режим: 1 инструменты, 2 Фото     "))
     if mode == 1:
@@ -37,7 +45,7 @@ while True:
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
-                [create_file, multiply],
+                [create_file, multiply,read_file,write_file],
                 on_message=chat.append,
                 on_prediction_fragment=print_fragment,
             )
