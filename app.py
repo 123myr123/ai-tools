@@ -2,6 +2,11 @@ from pathlib import Path
 import lmstudio as lms
 import os
 
+def read_folder(name: str):
+    """List of files and directories in a folder. The dot (.) symbol shows directories and files in the root folder."""
+    print("вызвон инструмент read_folder")
+    print()
+    return (os.listdir(path= name))
 def write_file(name: str, content: str):
     """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
     file = open(name,'w', encoding='utf-8')
@@ -56,7 +61,7 @@ while True:
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
-                [create_file, multiply,read_file,write_file],
+                [create_file, multiply,read_file,write_file,read_folder],
                 on_message=chat.append,
                 on_prediction_fragment=print_fragment,
             )
