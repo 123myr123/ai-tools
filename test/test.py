@@ -1,4 +1,4 @@
 # Это тестовый файл
 import os
-name = "test"
-print (os.listdir(path= name))
+name = "gol"
+print (os.mkdir(name, mode=0o777,  dir_fd=None))

@@ -2,6 +2,15 @@ from pathlib import Path
 import lmstudio as lms
 import os
 
+def create_folder(name:str):
+    """creates a directory without intermediate directories"""
+    folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+    print("вызвон инструмент create_folder")
+    print()
+    if folder == None:
+        return "folder created successfully"
+    else:
+        return "The folder was not created, it already exists."
 def read_folder(name: str):
     """List of files and directories in a folder. The dot (.) symbol shows directories and files in the root folder."""
     print("вызвон инструмент read_folder")
@@ -44,7 +53,7 @@ def print_fragment(fragment, round_index=0):
     # compatible with .complete() and .respond().
     print(fragment.content, end="", flush=True)
 model = lms.llm()
-chat = lms.Chat("ты ии ассистент. Ответы на вопросы пользователя всегда должны быть на русском")
+chat = lms.Chat("ты ии ассистент. Ответы на вопросы пользователя всегда должны быть на русском. ТЕБЕ ЗАПРЕШЕНО КАК ЛИБО МЕНЯТЬ КОД В app.py.")
 while True:
     mode = int(input("Выберите режим: 1 инструменты, 2 Фото     "))
     if mode == 1:
@@ -61,7 +70,7 @@ while True:
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
-                [create_file, multiply,read_file,write_file,read_folder],
+                [create_file, multiply,read_file,write_file,read_folder,create_folder],
                 on_message=chat.append,
                 on_prediction_fragment=print_fragment,
             )
