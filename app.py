@@ -30,11 +30,6 @@ def read_file(name: str):
     print()
     file = open(name)
     return file.read()
-def multiply(a: float, b: float) -> float:
-    """Given two numbers a and b. Returns the product of them."""
-    print("вызвон инструмент multiply")
-    print()
-    return a * b
 def create_file(name: str, content: str):
     """Create a file with the given name and content."""
     dest_path = Path(name)
@@ -70,7 +65,7 @@ while True:
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
-                [create_file, multiply,read_file,write_file,read_folder,create_folder],
+                [create_file,read_file,write_file,read_folder,create_folder],
                 on_message=chat.append,
                 on_prediction_fragment=print_fragment,
             )
