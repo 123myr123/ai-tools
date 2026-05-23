@@ -1,16 +1,25 @@
 from pathlib import Path
 import lmstudio as lms
+import os
+
 def write_file(name: str, content: str):
     """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
     file = open(name,'w', encoding='utf-8')
     file.write(content)
     file.close
+    print("вызвон инструмент write_file")
+    print()
+    return "information recorded"
 def read_file(name: str):
     """Read the specified file. Returns the file contents."""
+    print("вызвон инструмент read_file")
+    print()
     file = open(name)
     return file.read()
 def multiply(a: float, b: float) -> float:
     """Given two numbers a and b. Returns the product of them."""
+    print("вызвон инструмент multiply")
+    print()
     return a * b
 def create_file(name: str, content: str):
     """Create a file with the given name and content."""
@@ -21,6 +30,8 @@ def create_file(name: str, content: str):
         dest_path.write_text(content, encoding="utf-8")
     except Exception as exc:
         return "Error: {exc!r}"
+    print("вызвон инструмент create_file")
+    print()
     return "File created."
 def print_fragment(fragment, round_index=0):
     # .act() supplies the round index as the second parameter
