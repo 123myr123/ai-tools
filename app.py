@@ -47,6 +47,10 @@ def print_fragment(fragment, round_index=0):
     # Setting a default value means the callback is also
     # compatible with .complete() and .respond().
     print(fragment.content, end="", flush=True)
+
+tools = [create_file,read_file,write_file,read_folder,create_folder]
+SERVER_API_HOST = "localhost:1234"
+lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
 chat = lms.Chat("ты ии ассистент. Ответы на вопросы пользователя всегда должны быть на русском. ТЕБЕ ЗАПРЕШЕНО КАК ЛИБО МЕНЯТЬ КОД В app.py.")
 while True:
@@ -65,7 +69,7 @@ while True:
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
-                [create_file,read_file,write_file,read_folder,create_folder],
+                tools,
                 on_message=chat.append,
                 on_prediction_fragment=print_fragment,
             )
