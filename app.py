@@ -2,6 +2,18 @@ from pathlib import Path
 import lmstudio as lms
 import os
 
+def run_comand(name:str):
+    """executes a system command and returns its exit code(if successful 0)"""
+    print("вызвон инструмент run_comand")
+    print("ии хочет вызвать команду " +name)
+    if input("Y/N") == "Y":
+        command = os.system(name)
+        if command == 0:
+            return "command called successfully"
+        else:
+            return "command call failed"
+    else:
+        return "denied by user"
 def create_folder(name:str):
     """creates a directory without intermediate directories"""
     folder = os.mkdir(name, mode=0o777,  dir_fd=None)
@@ -48,7 +60,7 @@ def print_fragment(fragment, round_index=0):
     # compatible with .complete() and .respond().
     print(fragment.content, end="", flush=True)
 
-tools = [create_file,read_file,write_file,read_folder,create_folder]
+tools = [create_file,read_file,write_file,read_folder,create_folder,run_comand]
 SERVER_API_HOST = "localhost:1234"
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
