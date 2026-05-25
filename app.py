@@ -1,17 +1,16 @@
 from pathlib import Path
 import lmstudio as lms
 import os
+import subprocess
 
 def run_comand(name:str):
-    """executes a system command and returns its exit code(if successful 0)"""
+    """Executes the command specified in the command name. It waits for the command to complete and then displays the result. If input is required during the call, the user enters it."""
     print("вызвон инструмент run_comand")
     print("ии хочет вызвать команду " +name)
     if input("Y/N") == "Y":
-        command = os.system(name)
-        if command == 0:
-            return "command called successfully"
-        else:
-            return "command call failed"
+        command = subprocess.check_output(name, universal_newlines=True)
+        print(command)
+        return command
     else:
         return "denied by user"
 def create_folder(name:str):
