@@ -2,7 +2,7 @@
     "read_file":
     {
         "dostyp": 2,
-        "ban_list": ["app.py"],
+        "ban_list": ["app.py","test_copy.py"],
         "ask_list": []
     },
     "read_fordle":

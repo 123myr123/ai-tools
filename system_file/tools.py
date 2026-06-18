@@ -1,13 +1,17 @@
+from asyncio import tools
 from pathlib import Path
 import os
 import subprocess
 import json
+from pathlib import Path
 
 def json_data(name:str,tipe:str):
     """читает json конфиг"""
-    with open('test.json', 'r', encoding='utf-8') as file:
+    with open('tools_config.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
-    return(data[name][tipe])
+        x = data[name]
+        print(x[tipe])
+    return(x[tipe])
 
 def run_comand(name:str):
     """Executes the command specified in the command name. It waits for the command to complete and then displays the result. If input is required during the call, the user enters it."""
@@ -48,7 +52,7 @@ def create_folder(name:str):
     """creates a directory without intermediate directories"""
     print("вызвон инструмент create_folder")
     print()
-    for ban in json_data("create_fordel","ban_list"):
+    for ban in json_data("create_foldel","ban_list"):
         if ban == name:
             return "rejected by the system"
     for ask in json_data("create_folder","ask_list"):
@@ -104,7 +108,7 @@ def read_folder(name: str):
                 return (os.listdir(path= name))
             else: 
                 return "denied by user"
-        access = json_data("read_file","access")
+    access = json_data("read_file","access")
     if access == 2:    
         return (os.listdir(path= name))
     elif access == 1:
@@ -137,7 +141,7 @@ def write_file(name: str, content: str):
                 return "information recorded"
             else: 
                 return "denied by user"
-        access = json_data("write_file","access")
+    access = json_data("write_file","access")
     if access == 2:    
             file = open(name,'w', encoding='utf-8')
             file.write(content)
@@ -176,7 +180,8 @@ def read_file(name: str):
                 return file.read()
             else: 
                 return "denied by user"
-        access = json_data("read_file","access")
+    access = json_data("read_file","access")
+    print (access)
     if access == 2:    
         file = open(name)
         return file.read()
@@ -215,7 +220,7 @@ def create_file(name: str, content: str):
                 return "File created."
             else: 
                 return "denied by user"
-        access = json_data("create_file","access")
+    access = json_data("create_file","access")
     if access == 2:    
         dest_path = Path(name)
         if dest_path.exists():

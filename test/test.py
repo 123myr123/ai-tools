@@ -1,5 +1,5 @@
 # Это тестовый файл
 import os
 import subprocess
-from test_copy import *
-create_folder("gool")
+from system_file.tools import *
+print (read_folder("test"))

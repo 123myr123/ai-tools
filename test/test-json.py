@@ -5,7 +5,12 @@ def json_data(name:str,tipe:str):
 # Открываем файл с указанием кодировки UTF-8
     with open('test.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
-    return(data[name][tipe])
+        print (name)
+        print (tipe)
+
+        x = data[name]
+        print(x[tipe])
+    return(x[tipe])
 
 
 def read_file(name: str):
@@ -15,6 +20,7 @@ def read_file(name: str):
     print()
     for ban in json_data("read_file","ban_list"):
         if ban == name:
+            print(ban)
             return "в доступе отказано"
     for ask in json_data("read_file","ask_list"):
         if ask == name:
@@ -26,6 +32,7 @@ def read_file(name: str):
                 return file.read()
             else: 
                 return "В доступе отказано"
+    print(access)
     if access == 2:    
         file = open(name)
         return file.read()
