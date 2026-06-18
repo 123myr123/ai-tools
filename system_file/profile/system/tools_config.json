@@ -1,0 +1,38 @@
+{
+    "read_file":
+    {
+        "access": 2,
+        "ban_list": ["app.py"],
+        "ask_list": []
+    },
+    "read_fordle":
+    {
+        "access": 2,
+        "ban_list": ["system_file"],
+        "ask_list": []
+    },
+    "run_comand":
+    {
+        "access": 1,
+        "ban_list": [],
+        "ask_list": []
+    },
+    "create_folder":
+    {
+        "access": 2,
+        "ban_list": [],
+        "ask_list": []
+    },
+    "write_file":
+    {
+        "access": 2,
+        "ban_list": ["app.py"],
+        "ask_list": []
+    },
+    "create_file":
+    {
+        "access": 2,
+        "ban_list": [],
+        "ask_list": []
+    }
+}
