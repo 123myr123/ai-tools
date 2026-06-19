@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import subprocess
+import json
 
 def run_comand(name:str):
     """Executes the command specified in the command name. It waits for the command to complete and then displays the result. If input is required during the call, the user enters it."""
