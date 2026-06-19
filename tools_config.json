@@ -1,39 +1,38 @@
 {
     "read_file":
     {
-        "dostyp": 2,
-        "ban_list": ["app.py","test_copy.py"],
+        "access": 2,
+        "ban_list": ["app.py","tools_config.json"],
         "ask_list": []
     },
-    "read_fordle":
+    "read_folder":
     {
-        "dostyp": 2,
+        "access": 2,
         "ban_list": ["system_file"],
         "ask_list": []
     },
     "run_comand":
     {
-        "dostyp": 1,
+        "access": 1,
         "ban_list": [],
         "ask_list": []
     },
     "create_folder":
     {
-        "dostyp": 2,
+        "access": 2,
         "ban_list": [],
         "ask_list": []
     },
     "write_file":
     {
-        "dostyp": 2,
-        "ban_list": ["app.py"],
+        "access": 2,
+        "ban_list": ["app.py","tools_config.json"],
         "ask_list": []
     },
     "create_file":
     {
-        "dostyp": 2,
+        "access": 2,
         "ban_list": [],
         "ask_list": []
     }
-
 }
