@@ -11,8 +11,6 @@ def json_data(name:str,tipe:str):
     """читает json конфиг"""
     with open('tools_config.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
-        print(data)
-        print(data["create_folder"])
         x = data[name]
     return(x[tipe])
 
