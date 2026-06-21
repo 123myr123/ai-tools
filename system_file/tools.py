@@ -122,21 +122,24 @@ def read_folder(name: str):
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                logging.info("User одобрил чтение папки " +name, "результат: " + os.listdir(path= name))
+                logging.info("User одобрил чтение папки " +name)
+                logging.info(os.listdir(path= name))
                 return (os.listdir(path= name))
             else: 
                 logging.info("User откланил чтение папки")
                 return "denied by user"
     access = json_data("read_file","access")
     if access == 2:    
-                logging.info("чтение папки " +name, "результат: " + os.listdir(path= name))
+                logging.info("User одобрил чтение папки " +name)
+                logging.info(os.listdir(path= name))
                 return (os.listdir(path= name))
     elif access == 1:
             print("ии хочет прочитать папку: " +name)
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                logging.info("User одобрил чтение папки " +name, "результат: " + os.listdir(path= name))
+                logging.info("User одобрил чтение папки " +name)
+                logging.info(os.listdir(path= name))
                 return (os.listdir(path= name))
             else: 
                 logging.info("User откланил чтение папки")
@@ -161,7 +164,8 @@ def write_file(name: str, content: str):
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
                 file.close
-                logging.info("User одобрил запись файла " +name, " с контемтом: " +content)
+                logging.info("User одобрил запись файла " +name)
+                logging.info(content)
                 return "information recorded"
             else: 
                 logging.info("User откланил запись файла " +name)
@@ -171,7 +175,8 @@ def write_file(name: str, content: str):
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
                 file.close
-                logging.info("User одобрил запись файла " +name, " с контемтом: " +content)
+                logging.info("User одобрил запись файла " +name)
+                logging.info(content)
                 return "information recorded"
     elif access == 1:
             print("ии хочет изменить файл: " +name)
@@ -194,8 +199,7 @@ def write_file(name: str, content: str):
 
 def read_file(name: str):
     """Read the specified file. Returns the file contents."""
-    print("вызвон инструмент read_file")
-    print()
+    logging.info("вызвон инструмент read_file")
     for ban in json_data("read_file","ban_list"):
         if ban == name:
             return "rejected by the system"
@@ -205,23 +209,28 @@ def read_file(name: str):
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                file = open(name)
+                file = open(name, 'r', encoding='utf-8')
+                logging.info("user одоюрил чтение файла " +name)
                 return file.read()
             else: 
+                logging.info("User откланил чтение файла " +name)
                 return "denied by user"
     access = json_data("read_file","access")
     print (access)
     if access == 2:    
-        file = open(name)
+        file = open(name, 'r', encoding='utf-8')
+        logging.info("чтение файла " +name)
         return file.read()
     elif access == 1:
             print("ии хочет прочитать файл: " +name)
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                file = open(name)
+                file = open(name, 'r', encoding='utf-8')
+                logging.info("user одоюрил чтение файла " +name)
                 return file.read()
             else: 
+                logging.info("User откланил чтение файла " +name)
                 return "denied by user"
     else:
         logging.warning("Ошибка доступа проверьте tools_config.json")
