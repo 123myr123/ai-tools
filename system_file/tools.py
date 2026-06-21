@@ -11,6 +11,8 @@ def json_data(name:str,tipe:str):
     """читает json конфиг"""
     with open('tools_config.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
+        print(data)
+        print(data["create_folder"])
         x = data[name]
     return(x[tipe])
 
@@ -28,7 +30,8 @@ def run_comand(name:str):
             x = input()
             if x == "Y" or x =="y":
                 command = subprocess.check_output(name, universal_newlines=True)
-                logging.info("User одобрил вызов команды " +name, "результат команды: " +command)
+                logging.info("User одобрил вызов команды " +name,)
+                logging.info(command)
                 return command
             else: 
                 logging.info("User откланил вызов команды")
@@ -36,7 +39,8 @@ def run_comand(name:str):
     access = json_data("run_comand","access")
     if access == 2:    
             command = subprocess.check_output(name, universal_newlines=True)
-            logging.info("вызов команды: " +name, "результат команды: " +command)
+            logging.info("вызов команды: " +name,)
+            logging.info(command)
             return command
     elif access == 1:
             print("ии хочет вызвать команду " +name)
@@ -45,6 +49,7 @@ def run_comand(name:str):
             if x == "Y" or x =="y":
                 command = subprocess.check_output(name, universal_newlines=True)
                 logging.info("User одобрил вызов команды " +name, "результат команды: " +command)
+                logging.info(command)
                 return command
             else: 
                 logging.info("User откланил вызов команды")
@@ -56,7 +61,7 @@ def run_comand(name:str):
 def create_folder(name:str):
     """creates a directory without intermediate directories"""
     logging.info("вызвон инструмент create_folder")
-    for ban in json_data("create_foldel","ban_list"):
+    for ban in json_data("create_folder","ban_list"):
         if ban == name:
             logging.info("Откланено это име в бан листе:")
             return "rejected by the system"
@@ -243,7 +248,8 @@ def create_file(name: str, content: str):
                     return "Error: File already exists."
                 try:
                     dest_path.write_text(content, encoding="utf-8")
-                    logging.warning("User одобрил создание файла " +name," с контентом " +content)
+                    logging.info("User одобрил создание файла " +name)
+                    logging.info(content)
                 except Exception as exc:
                    logging.error("Error: {exc!r}")
                    return "Error: {exc!r}"
@@ -259,7 +265,8 @@ def create_file(name: str, content: str):
                     return "Error: File already exists."
                 try:
                     dest_path.write_text(content, encoding="utf-8")
-                    logging.warning("создание файла " +name," с контентом " +content)
+                    logging.info("создание файла " +name)
+                    logging.info(content)
                 except Exception as exc:
                    logging.error("Error: {exc!r}")
                    return "Error: {exc!r}"
