@@ -128,7 +128,7 @@ def read_folder(name: str):
             else: 
                 logging.info("User откланил чтение папки")
                 return "denied by user"
-    access = json_data("read_file","access")
+    access = json_data("read_folder","access")
     if access == 2:    
                 logging.info("User одобрил чтение папки " +name)
                 logging.info(os.listdir(path= name))
@@ -186,7 +186,8 @@ def write_file(name: str, content: str):
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
                 file.close
-                logging.info("User одобрил запись файла " +name, " с контемтом: " +content)
+                logging.info("User одобрил запись файла " +name)
+                logging.info(content)
                 return "information recorded"
             else: 
                 logging.info("User откланил запись файла " +name)
