@@ -20,7 +20,7 @@ def memory_write(content:str):
      y = ("system_file/profile/" +pyti)
      h = y + "/"
      pyti_config = h + "memory.txt"
-     file = open(pyti_config,'w', encoding='utf-8')
+     file = open(pyti_config,'a', encoding='utf-8')
      file.write(content)
      file.close
      return "The information has been recorded."
