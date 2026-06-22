@@ -44,7 +44,13 @@ for config_file in read_folder("system_file/profile/" +pyti):
         logging.info("загружен системный промт")
     if read_file(pyti_config) == "yes":
         tools = [create_file,read_file,write_file,read_folder,create_folder,run_comand,memory_read,memory_write]
-        logging.info("загружены инструменты")
+        logging.info("загружены инструменты и модуль памяти")
+    elif read_file(pyti_config) == "memory":
+        tools = [memory_read,memory_write]
+        logging.info("загружена только работа с памятью")
+    elif read_file(pyti_config) =="tools":
+        tools = [create_file,read_file,write_file,read_folder,create_folder,run_comand]
+        logging.info("загружены только инструменты")
 SERVER_API_HOST = "localhost:1234"
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
