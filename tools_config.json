@@ -2,7 +2,7 @@
     "read_file":
     {
         "access": 2,
-        "ban_list": ["app.py","tools_config.json"],
+        "ban_list": ["app.py","tools_config.json","app.log"],
         "ask_list": []
     },
     "read_folder":

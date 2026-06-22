@@ -1,19 +1,28 @@
-from pathlib import Path
 import lmstudio as lms
-import os
-import subprocess
 from system_file.tools import *
+import logging
+
 
 def print_fragment(fragment, round_index=0):
     # .act() supplies the round index as the second parameter
     # Setting a default value means the callback is also
     # compatible with .complete() and .respond().
     print(fragment.content, end="", flush=True)
-tools = [create_file,read_file,write_file,read_folder,create_folder,run_comand]
+print("Выберите профиль из перечисленых")
+for x in read_folder("system_file/profile"):
+    print(x)
+pyti = input("Выберите профиль: ")
+for config_file in read_folder("system_file/profile/" +pyti):
+    y = ("system_file/profile/" +pyti)
+    h = y + "/"
+    pyti_config = h + config_file
+    if config_file == "promt.txt":
+        chat = lms.Chat(read_file(pyti_config))
+    if read_file(pyti_config) == "yes":
+        tools = [create_file,read_file,write_file,read_folder,create_folder,run_comand]
 SERVER_API_HOST = "localhost:1234"
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
-chat = lms.Chat("ты ии ассистент. Ответы на вопросы пользователя всегда должны быть на русском. ТЕБЕ ЗАПРЕШЕНО КАК ЛИБО МЕНЯТЬ КОД В app.py.")
 while True:
     mode = int(input("Выберите режим: 1 инструменты, 2 Фото     "))
     if mode == 1:
