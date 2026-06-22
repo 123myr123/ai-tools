@@ -52,7 +52,7 @@ def create_folder(name:str):
     """creates a directory without intermediate directories"""
     print("вызвон инструмент create_folder")
     print()
-    for ban in json_data("create_foldel","ban_list"):
+    for ban in json_data("create_folder","ban_list"):
         if ban == name:
             return "rejected by the system"
     for ask in json_data("create_folder","ask_list"):
