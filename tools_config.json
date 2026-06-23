@@ -2,7 +2,7 @@
     "read_file":
     {
         "access": 2,
-        "ban_list": ["app.py","tools_config.json","app.log"],
+        "ban_list": ["app.py","tools_config.json","app.log","README.md"],
         "ask_list": []
     },
     "read_folder":
@@ -26,7 +26,7 @@
     "write_file":
     {
         "access": 2,
-        "ban_list": ["app.py","tools_config.json"],
+        "ban_list": ["app.py","tools_config.json","app.log","README.md"],
         "ask_list": []
     },
     "create_file":

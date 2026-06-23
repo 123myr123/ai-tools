@@ -60,11 +60,19 @@ def create_folder(name:str):
     """creates a directory without intermediate directories"""
     logging.info("вызвон инструмент create_folder")
     for ban in json_data("create_folder","ban_list"):
-        if ban == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ban_path = Path(ban)
+        abs_ban = ban_path.resolve()
+        if abs_ban == abs_path:
             logging.info("Откланено это име в бан листе:")
             return "rejected by the system"
     for ask in json_data("create_folder","ask_list"):
-        if ask == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ask_path = Path(ask)
+        abs_ask = ask_path.resolve()
+        if abs_ask == abs_path:
             print("ии хочет создать папку: " +name)
             print("Y/N")
             x = input()
@@ -113,11 +121,19 @@ def read_folder(name: str):
     """List of files and directories in a folder. The dot (.) symbol shows directories and files in the root folder."""
     logging.info("вызвон инструмент read_folder")
     for ban in json_data("read_folder","ban_list"):
-        if ban == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ban_path = Path(ban)
+        abs_ban = ban_path.resolve()
+        if abs_ban == abs_path:
             logging.info("чтение даный папки запрешено:" +name)
             return "rejected by the system"
     for ask in json_data("read_folder","ask_list"):
-        if ask == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ask_path = Path(ask)
+        abs_ask = ask_path.resolve()
+        if abs_ask == abs_path:
             print("ии хочет прочитать папку: " +name)
             print("Y/N")
             x = input()
@@ -152,11 +168,19 @@ def write_file(name: str, content: str):
     """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
     logging.info("вызвон инструмент write_file")
     for ban in json_data("write_file","ban_list"):
-        if ban == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ban_path = Path(ban)
+        abs_ban = ban_path.resolve()
+        if abs_ban == abs_path:
             logging.info("чтение файла запрешено")
             return "rejected by the system"
     for ask in json_data("write_file","ask_list"):
-        if ask == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ask_path = Path(ask)
+        abs_ask = ask_path.resolve()
+        if abs_ask == abs_path:
             print("ии хочет изменить файл: " +name)
             print("Y/N")
             x = input()
@@ -202,10 +226,18 @@ def read_file(name: str):
     """Read the specified file. Returns the file contents."""
     logging.info("вызвон инструмент read_file")
     for ban in json_data("read_file","ban_list"):
-        if ban == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ban_path = Path(ban)
+        abs_ban = ban_path.resolve()
+        if abs_ban == abs_path:
             return "rejected by the system"
     for ask in json_data("read_file","ask_list"):
-        if ask == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ask_path = Path(ask)
+        abs_ask = ask_path.resolve()
+        if abs_ask == abs_path:
             print("ии хочет прочитать файл: " +name)
             print("Y/N")
             x = input()
@@ -241,11 +273,19 @@ def create_file(name: str, content: str):
     """Create a file with the given name and content."""
     logging.info("вызвон инструмент create_file")
     for ban in json_data("create_file","ban_list"):
-        if ban == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ban_path = Path(ban)
+        abs_ban = ban_path.resolve()
+        if abs_ban == abs_path:
             logging.info("создание файла отклонено име в бан листе")
             return "rejected by the system"
     for ask in json_data("create_file","ask_list"):
-        if ask == name:
+        rel_path = Path(name)
+        abs_path = rel_path.resolve()
+        ask_path = Path(ask)
+        abs_ask = ask_path.resolve()
+        if abs_ask == abs_path:
             print("ии хочет создать файл: " +name)
             print("Y/N")
             x = input()
