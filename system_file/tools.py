@@ -46,7 +46,7 @@ def run_comand(name:str):
             x = input()
             if x == "Y" or x =="y":
                 command = subprocess.check_output(name, universal_newlines=True)
-                logging.info("User одобрил вызов команды " +name, "результат команды: " +command)
+                logging.info("User одобрил вызов команды " +name)
                 logging.info(command)
                 return command
             else: 
@@ -77,25 +77,25 @@ def create_folder(name:str):
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
-                if folder == None:
-                    logging.info("User одобрил создание папки: " +name)
-                    return "folder created successfully"
-                else:
-                    logging.warning("папка не создана ошибка: " +folder)
-                    return "The folder was not created, it already exists."
+                try:
+                    folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                    logging.info("user одобрил создание папки " +name)
+                except FileExistsError:
+                   logging.error("Попытка создать существующию папку")
+                   return "Error: Попытка создать существующию папку"
+                return "Folder created."
             else: 
                 logging.info("User откланил вызов команды")
                 return "denied by user"
     access = json_data("create_folder","access")
     if access == 2:    
-            folder = os.mkdir(name, mode=0o777,  dir_fd=None)
-            if folder == None:
-                    logging.info("User одобрил создание папки: " +name)
-                    return "folder created successfully"
-            else:
-                    logging.warning("папка не создана ошибка: " +folder)
-                    return "The folder was not created, it already exists."
+            try:
+                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                logging.info("user одобрил создание папки " +name)
+            except Exception as exc:
+               logging.error("Error: {exc!r}")
+               return "Error: {exc!r}"
+            return "File created."
     elif access == 1:
             print("ии хочет создать папку: " +name)
             print("Y/N")
@@ -187,7 +187,7 @@ def write_file(name: str, content: str):
             if x == "Y" or x =="y":
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
-                file.close
+                file.close()
                 logging.info("User одобрил запись файла " +name)
                 logging.info(content)
                 return "information recorded"
@@ -198,7 +198,7 @@ def write_file(name: str, content: str):
     if access == 2:    
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
-                file.close
+                file.close()
                 logging.info("User одобрил запись файла " +name)
                 logging.info(content)
                 return "information recorded"
@@ -209,7 +209,7 @@ def write_file(name: str, content: str):
             if x == "Y" or x =="y":
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
-                file.close
+                file.close()
                 logging.info("User одобрил запись файла " +name)
                 logging.info(content)
                 return "information recorded"
