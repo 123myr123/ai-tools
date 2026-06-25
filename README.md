@@ -3,12 +3,12 @@
 Это приложение для ИИ асистентов в режиме агента основаное на библеотеке lm studio
 Приложение имеет несколько инструментов и систему профилей
 Инструменты:
-     *create_file
-     *read_file
-     *write_file
-     *read_folder
-     *create_fordel
-     *run_comand(по умолчанию выключен)
+     1.create_file
+     2.read_file
+     3.write_file
+     4.read_folder
+     5.create_fordel
+     6.run_comand(по умолчанию выключен)
 # Первый запуск
 Если у вас не установлены библеотеки lm studio и приложение то перейдите на офицальный сайт и установите [lm studio](https://lmstudio.ai/)
 0) установка библеотеки lm studio
