@@ -4,6 +4,5 @@
     "write_file":1,
     "read_folder": 1,
     "create_folder":1,
-    "run_comand":0,
-    "memory": 1
+    "run_comand":0
 }
