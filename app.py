@@ -55,7 +55,30 @@ if int(input()) == 2:
                 create_file(new_file,read_file("system_file/copy.json"))
     elif user_answer == 2:
         old_profile = "system_file/profile/" + input("В ведите име старого профиля:")
-        
+        new_profile = "system_file/profile/" + input("В ведите име нового профиля:")
+        create_folder(new_profile)
+        new_file = new_profile + "/promt.txt"
+        old_file = old_profile + "/promt.txt"
+        create_file(new_file,read_file(old_file))
+        new_file = new_profile + "/memory.txt"
+        old_file = old_profile + "/memory.txt"
+        create_file(new_file,read_file(old_file))
+        new_file = new_profile + "/tools.json"
+        old_file = old_profile + "/tools.json"
+        create_file(new_file,read_file(old_file))
+    elif user_answer == 3:
+        old_profile = "system_file/profile/" + input("В ведите име старого профиля:")
+        new_profile = "system_file/profile/" + input("В ведите име нового профиля:")
+        create_folder(new_profile)
+        new_file = new_profile + "/promt.txt"
+        old_file = old_profile + "/promt.txt"
+        create_file(new_file,read_file(old_file))
+        new_file = new_profile + "/memory.txt"
+        create_file(new_file,"")
+        new_file = new_profile + "/tools.json"
+        old_file = old_profile + "/tools.json"
+        create_file(new_file,read_file(old_file))
+
 print("Выберите профиль из перечисленых")
 for x in read_folder("system_file/profile"):
     print(x)
