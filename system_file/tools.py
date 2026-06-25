@@ -2,7 +2,6 @@ from pathlib import Path
 import os
 import subprocess
 import json
-from pathlib import Path
 import logging
 
 logging.basicConfig(level=logging.INFO, filename="app.log",filemode="a",

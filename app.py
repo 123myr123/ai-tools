@@ -1,7 +1,8 @@
+from asyncio import tools
 import lmstudio as lms
 from system_file.tools import *
 import logging
-
+from tools_app import chek_tools
 
 def print_fragment(fragment, round_index=0):
     # .act() supplies the round index as the second parameter
@@ -22,7 +23,7 @@ def memory_write(content:str):
      pyti_config = h + "memory.txt"
      file = open(pyti_config,'a', encoding='utf-8')
      file.write(content)
-     file.close
+     file.close()
      return "The information has been recorded."
 
 def memory_read():
@@ -42,15 +43,11 @@ for config_file in read_folder("system_file/profile/" +pyti):
     if config_file == "promt.txt":
         chat = lms.Chat(read_file(pyti_config))
         logging.info("загружен системный промт")
-    if read_file(pyti_config) == "yes":
-        tools = [create_file,read_file,write_file,read_folder,create_folder,run_comand,memory_read,memory_write]
-        logging.info("загружены инструменты и модуль памяти")
-    elif read_file(pyti_config) == "memory":
-        tools = [memory_read,memory_write]
-        logging.info("загружена только работа с памятью")
-    elif read_file(pyti_config) =="tools":
-        tools = [create_file,read_file,write_file,read_folder,create_folder,run_comand]
-        logging.info("загружены только инструменты")
+    if config_file == "tools.json":
+        tools = chek_tools(pyti_config)
+        x = tools + [memory_read,memory_write]
+        tools = x
+
 SERVER_API_HOST = "localhost:1234"
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
