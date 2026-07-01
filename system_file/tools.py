@@ -13,14 +13,14 @@ def json_data(name:str,tipe:str):
         x = data[name]
     return(x[tipe])
 
-def run_comand(name:str):
+def run_command(name:str):
     """Executes the command specified in the command name. It waits for the command to complete and then displays the result. If input is required during the call, the user enters it."""
     logging.info("вызвон инструмент run_comand")
-    for ban in json_data("run_comand","ban_list"):
+    for ban in json_data("run_command","ban_list"):
         if ban == name:
             logging.info("Откланено, команда в бан листе")
             return "rejected by the system"
-    for ask in json_data("run_comand","ask_list"):
+    for ask in json_data("run_command","ask_list"):
         if ask == name:
             print("ии хочет вызвать команду " +name)
             print("Y/N")
@@ -33,7 +33,7 @@ def run_comand(name:str):
             else: 
                 logging.info("User откланил вызов команды")
                 return "denied by user"
-    access = json_data("run_comand","access")
+    access = json_data("run_command","access")
     if access == 2:    
             command = subprocess.check_output(name, universal_newlines=True)
             logging.info("вызов команды: " +name,)

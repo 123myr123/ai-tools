@@ -11,7 +11,7 @@
         "ban_list": ["system_file"],
         "ask_list": []
     },
-    "run_comand":
+    "run_command":
     {
         "access": 1,
         "ban_list": [],

@@ -22,8 +22,8 @@ def chek_tools(pyti:str):
                         if data_info  == "write_file" and data[data_info] == 1:
                              x =tools + tools_config.tools_write_file
                              tools = x
-                        if data_info  == "run_comand" and data[data_info] == 1:
-                             x =tools + tools_config.tools_run_comand
+                        if data_info  == "run_command" and data[data_info] == 1:
+                             x =tools + tools_config.tools_run_command
                              tools = x       
                 return tools
 
