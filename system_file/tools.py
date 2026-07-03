@@ -163,7 +163,7 @@ def write_file(name: str, content: str):
             if x == "Y" or x =="y":
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
-                file.close
+                file.close()
                 logging.info("User одобрил запись файла " +name)
                 logging.info(content)
                 return "information recorded"
@@ -174,7 +174,7 @@ def write_file(name: str, content: str):
     if access == 2:    
                 file = open(name,'w', encoding='utf-8')
                 file.write(content)
-                file.close
+                file.close()
                 logging.info("User одобрил запись файла " +name)
                 logging.info(content)
                 return "information recorded"
