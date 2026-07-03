@@ -1,11 +1,32 @@
 from pathlib import Path
 import os
+import pprint
 import subprocess
 import json
 import logging
 
 logging.basicConfig(level=logging.INFO, filename="app.log",filemode="a",
                     format="%(asctime)s %(levelname)s %(message)s", encoding='utf-8')
+def chek_list_tools(name:str,pyti:str):
+        for ban in json_data(name,"ban_list"):
+            rel_path = Path(pyti)
+            abs_path = rel_path.resolve()
+            ban_path = Path(ban)
+            abs_ban = ban_path.resolve()
+            if abs_ban == abs_path:
+                return 1
+        for ask in json_data(name,"ask_list"):
+            rel_path = Path(pyti)
+            abs_path = rel_path.resolve()
+            ask_path = Path(ask)
+            abs_ask = ask_path.resolve()
+            if abs_ask == abs_path:
+                return 2
+        rel_path = Path(pyti)
+        abs_path = rel_path.resolve()
+        print(abs_path)
+        if not "ai-tools" in str(abs_path) :
+             return 1
 def json_data(name:str,tipe:str):
     """читает json конфиг"""
     with open('tools_config.json', 'r', encoding='utf-8') as file:
@@ -58,34 +79,25 @@ def run_command(name:str):
 def create_folder(name:str):
     """creates a directory without intermediate directories"""
     logging.info("вызвон инструмент create_folder")
-    for ban in json_data("create_folder","ban_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ban_path = Path(ban)
-        abs_ban = ban_path.resolve()
-        if abs_ban == abs_path:
-            logging.info("Откланено это име в бан листе:")
+    chek = chek_list_tools("create_folder",name)
+    if chek == 1:
+            logging.info("создание данной папки запрешено" +name)
             return "rejected by the system"
-    for ask in json_data("create_folder","ask_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ask_path = Path(ask)
-        abs_ask = ask_path.resolve()
-        if abs_ask == abs_path:
-            print("ии хочет создать папку: " +name)
-            print("Y/N")
-            x = input()
-            if x == "Y" or x =="y":
-                try:
-                    folder = os.mkdir(name, mode=0o777,  dir_fd=None)
-                    logging.info("user одобрил создание папки " +name)
-                except FileExistsError:
-                   logging.error("Попытка создать существующию папку")
-                   return "Error: Попытка создать существующию папку"
-                return "Folder created."
-            else: 
-                logging.info("User откланил вызов команды")
-                return "denied by user"
+    elif chek == 2:
+        print("ии хочет создать папку: " +name)
+        print("Y/N")
+        x = input()
+        if x == "Y" or x =="y":
+            try:
+                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                logging.info("user одобрил создание папки " +name)
+            except FileExistsError:
+                logging.error("Попытка создать существующию папку")
+                return "Error: Попытка создать существующию папку"
+            return "Folder created."
+        else: 
+            logging.info("User откланил вызов команды")
+            return "denied by user"
     access = json_data("create_folder","access")
     if access == 2:    
             try:
@@ -119,20 +131,11 @@ def create_folder(name:str):
 def read_folder(name: str):
     """List of files and directories in a folder. The dot (.) symbol shows directories and files in the root folder."""
     logging.info("вызвон инструмент read_folder")
-    for ban in json_data("read_folder","ban_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ban_path = Path(ban)
-        abs_ban = ban_path.resolve()
-        if abs_ban == abs_path:
+    chek = chek_list_tools("create_folder",name)
+    if chek == 1:
             logging.info("чтение даный папки запрешено:" +name)
             return "rejected by the system"
-    for ask in json_data("read_folder","ask_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ask_path = Path(ask)
-        abs_ask = ask_path.resolve()
-        if abs_ask == abs_path:
+    elif chek == 2:
             print("ии хочет прочитать папку: " +name)
             print("Y/N")
             x = input()
@@ -166,33 +169,24 @@ def read_folder(name: str):
 def write_file(name: str, content: str):
     """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
     logging.info("вызвон инструмент write_file")
-    for ban in json_data("write_file","ban_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ban_path = Path(ban)
-        abs_ban = ban_path.resolve()
-        if abs_ban == abs_path:
-            logging.info("чтение файла запрешено")
-            return "rejected by the system"
-    for ask in json_data("write_file","ask_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ask_path = Path(ask)
-        abs_ask = ask_path.resolve()
-        if abs_ask == abs_path:
-            print("ии хочет изменить файл: " +name)
-            print("Y/N")
-            x = input()
-            if x == "Y" or x =="y":
-                file = open(name,'w', encoding='utf-8')
-                file.write(content)
-                file.close()
-                logging.info("User одобрил запись файла " +name)
-                logging.info(content)
-                return "information recorded"
-            else: 
-                logging.info("User откланил запись файла " +name)
-                return "denied by user"
+    chek = chek_list_tools("create_folder",name)
+    if chek == 1:
+                logging.info("чтение даный папки запрешено:" +name)
+                return "rejected by the system"
+    elif chek == 2:
+                print("ии хочет изменить файл: " +name)
+                print("Y/N")
+                x = input()
+                if x == "Y" or x =="y":
+                    file = open(name,'w', encoding='utf-8')
+                    file.write(content)
+                    file.close()
+                    logging.info("User одобрил запись файла " +name)
+                    logging.info(content)
+                    return "information recorded"
+                else: 
+                    logging.info("User откланил запись файла " +name)
+                    return "denied by user"
     access = json_data("write_file","access")
     if access == 2:    
                 file = open(name,'w', encoding='utf-8')
