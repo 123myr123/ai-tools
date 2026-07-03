@@ -24,7 +24,6 @@ def chek_list_tools(name:str,pyti:str):
                 return 2
         rel_path = Path(pyti)
         abs_path = rel_path.resolve()
-        print(abs_path)
         if not "ai-tools" in str(abs_path) :
              return 1
 def json_data(name:str,tipe:str):
@@ -218,29 +217,22 @@ def write_file(name: str, content: str):
 def read_file(name: str):
     """Read the specified file. Returns the file contents."""
     logging.info("вызвон инструмент read_file")
-    for ban in json_data("read_file","ban_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ban_path = Path(ban)
-        abs_ban = ban_path.resolve()
-        if abs_ban == abs_path:
+    chek = chek_list_tools("create_folder",name)
+    if chek == 1:
+            logging.info("чтение даного  файла запрешено:" +name)
             return "rejected by the system"
-    for ask in json_data("read_file","ask_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ask_path = Path(ask)
-        abs_ask = ask_path.resolve()
-        if abs_ask == abs_path:
+    elif chek == 2:
             print("ии хочет прочитать файл: " +name)
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
                 file = open(name, 'r', encoding='utf-8')
-                logging.info("user одоюрил чтение файла " +name)
+                logging.info("user одобрил чтение файла " +name)
                 return file.read()
             else: 
                 logging.info("User откланил чтение файла " +name)
                 return "denied by user"
+
     access = json_data("read_file","access")
     print (access)
     if access == 2:    
@@ -265,20 +257,11 @@ def read_file(name: str):
 def create_file(name: str, content: str):
     """Create a file with the given name and content."""
     logging.info("вызвон инструмент create_file")
-    for ban in json_data("create_file","ban_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ban_path = Path(ban)
-        abs_ban = ban_path.resolve()
-        if abs_ban == abs_path:
+    chek = chek_list_tools("create_folder",name)
+    if chek == 1:
             logging.info("создание файла отклонено име в бан листе")
             return "rejected by the system"
-    for ask in json_data("create_file","ask_list"):
-        rel_path = Path(name)
-        abs_path = rel_path.resolve()
-        ask_path = Path(ask)
-        abs_ask = ask_path.resolve()
-        if abs_ask == abs_path:
+    elif chek == 2:
             print("ии хочет создать файл: " +name)
             print("Y/N")
             x = input()
@@ -298,6 +281,7 @@ def create_file(name: str, content: str):
             else: 
                 logging.info("user откланил создание файла")
                 return "denied by user"
+                
     access = json_data("create_file","access")
     if access == 2:    
                 dest_path = Path(name)
