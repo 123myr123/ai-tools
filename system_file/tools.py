@@ -167,6 +167,7 @@ def read_folder(name: str):
 def write_file(name: str, content: str):
     """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
     logging.info("вызвон инструмент write_file")
+
     chek = chek_list_tools("create_folder",name)
     if chek == 1:
                 logging.info("чтение даный папки запрешено:" +name)
