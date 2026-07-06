@@ -7,6 +7,7 @@ import logging
 logging.basicConfig(level=logging.INFO, filename="app.log",filemode="a",
                     format="%(asctime)s %(levelname)s %(message)s", encoding='utf-8')
 def chek_list_tools(name:str,pyti:str):
+        """"Проверки безопастности"""
         for ban in json_data(name,"ban_list"):
             rel_path = Path(pyti)
             abs_path = rel_path.resolve()
@@ -36,11 +37,11 @@ def run_command(name:str):
     """Executes the command specified in the command name. It waits for the command to complete and then displays the result. If input is required during the call, the user enters it."""
     logging.info("вызвон инструмент run_comand")
     for ban in json_data("run_command","ban_list"):
-        if ban == name:
+        if ban in name:
             logging.info("Откланено, команда в бан листе")
             return "rejected by the system"
     for ask in json_data("run_command","ask_list"):
-        if ask == name:
+        if ask in name:
             print("ии хочет вызвать команду " +name)
             print("Y/N")
             x = input()
