@@ -111,7 +111,7 @@ def create_folder(name:str):
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                folder = os.mkdir(name, mode=0o755,  dir_fd=None)
                 if folder == None:
                     logging.info("User одобрил создание папки: " +name)
                     return "folder created successfully"
@@ -130,7 +130,7 @@ def create_folder(name:str):
 def read_folder(name: str):
     """List of files and directories in a folder. The dot (.) symbol shows directories and files in the root folder."""
     logging.info("вызвон инструмент read_folder")
-    chek = chek_list_tools("create_folder",name)
+    chek = chek_list_tools("read_folder",name)
     if chek == 1:
             logging.info("чтение даный папки запрешено:" +name)
             return "rejected by the system"
@@ -169,7 +169,7 @@ def write_file(name: str, content: str):
     """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
     logging.info("вызвон инструмент write_file")
 
-    chek = chek_list_tools("create_folder",name)
+    chek = chek_list_tools("write_file",name)
     if chek == 1:
                 logging.info("чтение даный папки запрешено:" +name)
                 return "rejected by the system"
@@ -218,7 +218,7 @@ def write_file(name: str, content: str):
 def read_file(name: str):
     """Read the specified file. Returns the file contents."""
     logging.info("вызвон инструмент read_file")
-    chek = chek_list_tools("create_folder",name)
+    chek = chek_list_tools("read_file",name)
     if chek == 1:
             logging.info("чтение даного  файла запрешено:" +name)
             return "rejected by the system"
