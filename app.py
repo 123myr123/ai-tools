@@ -10,11 +10,11 @@ def print_fragment(fragment, round_index=0):
     # compatible with .complete() and .respond().
     print(fragment.content, end="", flush=True)
 
-print("выберите что сделать:")
+print("Выберите что сделать:")
 print("1 режим чата с ии")
 print("2 создать новый профиль")
 if int(input()) == 2:
-    print("Выбирите действие:")
+    print("Выберите действие:")
     print("1 Создать новый профиль")
     print("2 Скопировать старый")
     print("3 скопировать старый(без памяти)")
@@ -25,7 +25,7 @@ if int(input()) == 2:
             print("3 не создовать промт")
             user_answer = int(input())
             if user_answer == 1:
-                new_profile = "system_file/profile/" + input("В ведите име профиля:")
+                new_profile = "system_file/profile/" + input("Введите имя профиля:")
                 create_folder(new_profile)
                 new_file = new_profile + "/promt.txt"
                 create_file(new_file,str(input("ведите системный промт")))
@@ -54,8 +54,8 @@ if int(input()) == 2:
                 new_file = new_profile + "/tools.json"
                 create_file(new_file,read_file("system_file/copy.json"))
     elif user_answer == 2:
-        old_profile = "system_file/profile/" + input("В ведите име старого профиля:")
-        new_profile = "system_file/profile/" + input("В ведите име нового профиля:")
+        old_profile = "system_file/profile/" + input("Введите имя старого профиля:")
+        new_profile = "system_file/profile/" + input("Введите имя нового профиля:")
         create_folder(new_profile)
         new_file = new_profile + "/promt.txt"
         old_file = old_profile + "/promt.txt"
@@ -67,8 +67,8 @@ if int(input()) == 2:
         old_file = old_profile + "/tools.json"
         create_file(new_file,read_file(old_file))
     elif user_answer == 3:
-        old_profile = "system_file/profile/" + input("В ведите име старого профиля:")
-        new_profile = "system_file/profile/" + input("В ведите име нового профиля:")
+        old_profile = "system_file/profile/" + input("Введите имя старого профиля:")
+        new_profile = "system_file/profile/" + input("Введите имя нового профиля:")
         create_folder(new_profile)
         new_file = new_profile + "/promt.txt"
         old_file = old_profile + "/promt.txt"
@@ -79,7 +79,7 @@ if int(input()) == 2:
         old_file = old_profile + "/tools.json"
         create_file(new_file,read_file(old_file))
 
-print("Выберите профиль из перечисленых")
+print("Выберите профиль из перечисленных")
 for x in read_folder("system_file/profile"):
     print(x)
 pyti = input("Выберите профиль: ")
