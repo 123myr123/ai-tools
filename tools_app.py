@@ -1,5 +1,3 @@
-
-from test import extract_text_from_url
 import tools_config
 import json
 
