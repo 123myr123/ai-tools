@@ -113,7 +113,7 @@ def create_folder(name:str):
         x = input()
         if x == "Y" or x =="y":
             try:
-                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                folder = os.mkdir(name, mode=0o766,  dir_fd=None)
                 logging.info("user одобрил создание папки " +name)
             except FileExistsError:
                 logging.error("Попытка создать существующию папку")
@@ -125,7 +125,7 @@ def create_folder(name:str):
     access = json_data("create_folder","access")
     if access == 2:    
             try:
-                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                folder = os.mkdir(name, mode=0o766,  dir_fd=None)
                 logging.info("user одобрил создание папки " +name)
             except Exception as exc:
                logging.error("Error: {exc!r}")
@@ -136,7 +136,7 @@ def create_folder(name:str):
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                folder = os.mkdir(name, mode=0o755,  dir_fd=None)
+                folder = os.mkdir(name, mode=0o766,  dir_fd=None)
                 if folder == None:
                     logging.info("User одобрил создание папки: " +name)
                     return "folder created successfully"

@@ -1,5 +1,3 @@
-from types import MemberDescriptorType
-
 import lmstudio as lms
 from system_file.tools import *
 import logging
