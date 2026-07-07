@@ -1,3 +1,5 @@
+from types import MemberDescriptorType
+
 import lmstudio as lms
 from system_file.tools import *
 import logging
@@ -111,15 +113,17 @@ for config_file in read_folder("system_file/profile/" +pyti):
         chat = lms.Chat(read_file(pyti_config))
         logging.info("загружен системный промт")
     if config_file == "tools.json":
-        logging.info("инстурменты установлены")
         tools = chek_tools(pyti_config)
         x = tools + [memory_read,memory_write]
         tools = x
+        logging.info("инстурменты установлены")
+        logging.info(tools)
 
 SERVER_API_HOST = "localhost:1234"
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
-chat.add_user_message("memory: " + memory_read())
+if not memory_read == "" or not memory_read == None:
+    chat.add_user_message("memory: " + memory_read())
 while True:
     mode = int(input("Выберите режим: 1 инструменты, 2 Фото     "))
     if mode == 1:

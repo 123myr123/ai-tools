@@ -3,6 +3,8 @@ import os
 import subprocess
 import json
 import logging
+import requests
+from bs4 import BeautifulSoup
 
 logging.basicConfig(level=logging.INFO, filename="app.log",filemode="a",
                     format="%(asctime)s %(levelname)s %(message)s", encoding='utf-8')
@@ -32,6 +34,29 @@ def json_data(name:str,tipe:str):
         data = json.load(file)
         x = data[name]
     return(x[tipe])
+
+def extract_text_from_url(url):
+    """
+    Extracts and saves the plain text content from the specified URL.
+    """
+    logging.info("Вызван инструмент extract_text_from_url. Ссылка: " +url)
+    try:
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ...'}
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()  # выбросит исключение при HTTP-ошибке
+        soup = BeautifulSoup(response.text, 'html.parser')
+        for element in soup(["script", "style"]):
+            element.decompose()
+        raw_text = soup.get_text(separator='\n', strip=True)
+        lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+        clean_text = '\n'.join(lines)
+        return clean_text
+    except requests.exceptions.RequestException as e:
+        logging.info(f"Ошибка при запросе: {e}")
+        return (f"Ошибка при запросе: {e}")
+    except Exception as e:
+        logging.info(f"Неожиданная ошибка: {e}")
+        return (f"Неожиданная ошибка: {e}")
 
 def run_command(name:str):
     """Executes the command specified in the command name. It waits for the command to complete and then displays the result. If input is required during the call, the user enters it."""

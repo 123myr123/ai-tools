@@ -1,4 +1,5 @@
 
+from test import extract_text_from_url
 import tools_config
 import json
 
@@ -24,9 +25,8 @@ def chek_tools(pyti:str):
                              tools = x
                         if data_info  == "run_command" and data[data_info] == 1:
                              x =tools + tools_config.tools_run_command
+                             tools = x  
+                        if data_info == "extract_text_from_url" and data[data_info] == 1:
+                             x =tools + tools_config.tools_extract_text_from_url
                              tools = x       
                 return tools
-
-
-
-print(chek_tools("system_file/profile/system/tools.json"))
