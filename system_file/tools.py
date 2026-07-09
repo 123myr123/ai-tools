@@ -24,7 +24,14 @@ def chek_list_tools(name:str,pyti:str):
         rel_path = Path(pyti)
         abs_path = rel_path.resolve()
         if not "ai-tools" in str(abs_path) :
-             return 1
+            with open('tools_config.json', 'r', encoding='utf-8') as file:
+                workspace = json.load(file)
+                for folder in workspace["workspace"]:
+                    rel_foldre = Path(folder)
+                    abs_folder = rel_foldre.resolve()
+                    if str(abs_folder) in str(abs_path):
+                        return None
+            return 1
 def json_data(name:str,tipe:str):
     """читает json конфиг"""
     with open('tools_config.json', 'r', encoding='utf-8') as file:
@@ -234,7 +241,6 @@ def read_file(name: str):
                 return "denied by user"
 
     access = json_data("read_file","access")
-    print (access)
     if access == 2:    
         file = open(name, 'r', encoding='utf-8')
         logging.info("чтение файла " +name)

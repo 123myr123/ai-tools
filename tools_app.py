@@ -26,7 +26,3 @@ def chek_tools(pyti:str):
                              x =tools + tools_config.tools_run_command
                              tools = x       
                 return tools
-
-
-
-print(chek_tools("system_file/profile/system/tools.json"))
