@@ -54,10 +54,16 @@ for config_file in read_folder("system_file/profile/" +pyti):
         logging.info(tools)
 
 SERVER_API_HOST = "localhost:1234"
+lms.set_sync_api_timeout(720000)
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
 if not memory_read == "" or not memory_read == None:
     chat.add_user_message("memory: " + memory_read())
+    with open('tools_config.json', 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            chat.add_user_message("Доступные пространства кроме основного: ")
+            for workspace in data["workspace"]:
+                chat.add_user_message(workspace)
 while True:
     mode = int(input("Выберите режим: 1 инструменты, 2 Фото     "))
     if mode == 1:
