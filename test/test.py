@@ -1,3 +1,3 @@
 import system_file.tools
 
-print(system_file.tools.extract_text_from_url("https://habr.com/ru/news/1056288/"))
+print(system_file.tools.create_folder("D:/Video/goool"))

@@ -27,7 +27,15 @@ def chek_list_tools(name:str,pyti:str):
         rel_path = Path(pyti)
         abs_path = rel_path.resolve()
         if not "ai-tools" in str(abs_path) :
-             return 1
+            with open('tools_config.json', 'r', encoding='utf-8') as file:
+                    data = json.load(file)
+                    print(data["workspace"])
+                    for workspace in data["workspace"]:
+                        rel_workspace = Path(workspace)
+                        abs_workspace = rel_workspace.resolve()
+                        if str(abs_workspace) in str(abs_path):
+                            return None
+            return 1
 def json_data(name:str,tipe:str):
     """читает json конфиг"""
     with open('tools_config.json', 'r', encoding='utf-8') as file:
