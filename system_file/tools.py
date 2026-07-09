@@ -43,7 +43,7 @@ def json_data(name:str,tipe:str):
         x = data[name]
     return(x[tipe])
 
-def extract_text_from_url(url):
+def extract_text_from_url(url:str):
     """
     Extracts and saves the plain text content from the specified URL.
     """
