@@ -3,10 +3,13 @@ import os
 import subprocess
 import json
 import logging
+import requests
+from bs4 import BeautifulSoup
 
 logging.basicConfig(level=logging.INFO, filename="app.log",filemode="a",
                     format="%(asctime)s %(levelname)s %(message)s", encoding='utf-8')
 def chek_list_tools(name:str,pyti:str):
+        """"Проверки безопастности"""
         for ban in json_data(name,"ban_list"):
             rel_path = Path(pyti)
             abs_path = rel_path.resolve()
@@ -39,15 +42,38 @@ def json_data(name:str,tipe:str):
         x = data[name]
     return(x[tipe])
 
+def extract_text_from_url(url:str):
+    """
+    Extracts and saves the plain text content from the specified URL.
+    """
+    logging.info("Вызван инструмент extract_text_from_url. Ссылка: " +url)
+    try:
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ...'}
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()  # выбросит исключение при HTTP-ошибке
+        soup = BeautifulSoup(response.text, 'html.parser')
+        for element in soup(["script", "style"]):
+            element.decompose()
+        raw_text = soup.get_text(separator='\n', strip=True)
+        lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+        clean_text = '\n'.join(lines)
+        return clean_text
+    except requests.exceptions.RequestException as e:
+        logging.info(f"Ошибка при запросе: {e}")
+        return (f"Ошибка при запросе: {e}")
+    except Exception as e:
+        logging.info(f"Неожиданная ошибка: {e}")
+        return (f"Неожиданная ошибка: {e}")
+
 def run_command(name:str):
     """Executes the command specified in the command name. It waits for the command to complete and then displays the result. If input is required during the call, the user enters it."""
     logging.info("вызвон инструмент run_comand")
     for ban in json_data("run_command","ban_list"):
-        if ban == name:
+        if ban in name:
             logging.info("Откланено, команда в бан листе")
             return "rejected by the system"
     for ask in json_data("run_command","ask_list"):
-        if ask == name:
+        if ask in name:
             print("ии хочет вызвать команду " +name)
             print("Y/N")
             x = input()
@@ -94,7 +120,7 @@ def create_folder(name:str):
         x = input()
         if x == "Y" or x =="y":
             try:
-                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                folder = os.mkdir(name, mode=0o766,  dir_fd=None)
                 logging.info("user одобрил создание папки " +name)
             except FileExistsError:
                 logging.error("Попытка создать существующию папку")
@@ -106,7 +132,7 @@ def create_folder(name:str):
     access = json_data("create_folder","access")
     if access == 2:    
             try:
-                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                folder = os.mkdir(name, mode=0o766,  dir_fd=None)
                 logging.info("user одобрил создание папки " +name)
             except Exception as exc:
                logging.error("Error: {exc!r}")
@@ -117,7 +143,7 @@ def create_folder(name:str):
             print("Y/N")
             x = input()
             if x == "Y" or x =="y":
-                folder = os.mkdir(name, mode=0o777,  dir_fd=None)
+                folder = os.mkdir(name, mode=0o766,  dir_fd=None)
                 if folder == None:
                     logging.info("User одобрил создание папки: " +name)
                     return "folder created successfully"
@@ -136,7 +162,7 @@ def create_folder(name:str):
 def read_folder(name: str):
     """List of files and directories in a folder. The dot (.) symbol shows directories and files in the root folder."""
     logging.info("вызвон инструмент read_folder")
-    chek = chek_list_tools("create_folder",name)
+    chek = chek_list_tools("read_folder",name)
     if chek == 1:
             logging.info("чтение даный папки запрешено:" +name)
             return "rejected by the system"
@@ -175,7 +201,7 @@ def write_file(name: str, content: str):
     """open for writing, file contents are deleted, if the file does not exist, a new one is created"""
     logging.info("вызвон инструмент write_file")
 
-    chek = chek_list_tools("create_folder",name)
+    chek = chek_list_tools("write_file",name)
     if chek == 1:
                 logging.info("чтение даный папки запрешено:" +name)
                 return "rejected by the system"
@@ -224,7 +250,7 @@ def write_file(name: str, content: str):
 def read_file(name: str):
     """Read the specified file. Returns the file contents."""
     logging.info("вызвон инструмент read_file")
-    chek = chek_list_tools("create_folder",name)
+    chek = chek_list_tools("read_file",name)
     if chek == 1:
             logging.info("чтение даного  файла запрешено:" +name)
             return "rejected by the system"
