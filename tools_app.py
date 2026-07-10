@@ -28,16 +28,11 @@ def chek_tools(pyti:str):
                         if data_info == "extract_text_from_url" and data[data_info] == 1:
                              x =tools + tools_config.tools_extract_text_from_url
                              tools = x       
-                return tools      
-
-=======
                              tools = x  
                         if data_info == "search_duckduckgo" and data[data_info] == 1:
                             x = tools + tools_config.tools_search_duckduckgo
                             tools = x
                 return tools
-    
->>>>>>> 1824dcb8e2610dc006d9cd785d3dc341e1f5af33
 def profile_create():
           print("Выберите действие:")
           print("1 Создать новый профиль")
