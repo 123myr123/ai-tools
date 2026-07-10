@@ -1,3 +1,6 @@
-import system_file.tools
+import datetime
+import platform
 
-print(system_file.tools.create_folder("D:/Video/goool"))
+print(platform.system())
+local_now = datetime.datetime.now()
+print(local_now.strftime("%d/%m/%Y, %H:%M:%S"))
