@@ -28,7 +28,8 @@ def chek_tools(pyti:str):
                         if data_info == "extract_text_from_url" and data[data_info] == 1:
                              x =tools + tools_config.tools_extract_text_from_url
                              tools = x       
-
+                return tools
+    
 def profile_create():
           print("Выберите действие:")
           print("1 Создать новый профиль")
