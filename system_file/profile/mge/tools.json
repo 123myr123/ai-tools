@@ -5,5 +5,6 @@
     "read_folder": 1,
     "create_folder":1,
     "run_command":0,
-    "extract_text_from_url": 1
+    "extract_text_from_url": 1,
+    "search_duckduckgo":1
 }

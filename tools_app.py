@@ -27,7 +27,10 @@ def chek_tools(pyti:str):
                              tools = x  
                         if data_info == "extract_text_from_url" and data[data_info] == 1:
                              x =tools + tools_config.tools_extract_text_from_url
-                             tools = x       
+                             tools = x  
+                        if data_info == "search_duckduckgo" and data[data_info] == 1:
+                            x = tools + tools_config.tools_search_duckduckgo
+                            tools = x
                 return tools
     
 def profile_create():
