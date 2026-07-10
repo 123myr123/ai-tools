@@ -12,6 +12,7 @@
 * `create_folder`
 * `run_command` (по умолчанию выключен)
 * `extract_text_from_url`
+* `search_duckduckgo`
 
 
 ## Первый запуск
