@@ -5,6 +5,7 @@ import json
 import logging
 import requests
 from bs4 import BeautifulSoup
+from duckduckgo_search import DDGS
 
 logging.basicConfig(level=logging.INFO, filename="app.log",filemode="a",
                     format="%(asctime)s %(levelname)s %(message)s", encoding='utf-8')
@@ -42,6 +43,14 @@ def json_data(name:str,tipe:str):
         x = data[name]
     return(x[tipe])
 
+
+def search_duckduckgo(search:str):
+    """Sends a request to the DuckDuckGo service."""
+    logging.info("Начат поиск по запросу: " +search)
+    with DDGS() as ddgs:
+        logging.info("Поиск завершон")
+        return ddgs.text(search,max_results= 10)
+        
 def extract_text_from_url(url:str):
     """
     Extracts and saves the plain text content from the specified URL.

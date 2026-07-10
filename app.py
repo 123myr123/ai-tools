@@ -2,6 +2,8 @@ import lmstudio as lms
 from system_file.tools import *
 import logging
 from tools_app import chek_tools, profile_create
+import platform
+import datetime
 
 def print_fragment(fragment, round_index=0):
     # .act() supplies the round index as the second parameter
@@ -57,13 +59,16 @@ SERVER_API_HOST = "localhost:1234"
 lms.set_sync_api_timeout(720000)
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm()
-if not memory_read == "" or not memory_read == None:
-    chat.add_user_message("memory: " + memory_read())
-    with open('tools_config.json', 'r', encoding='utf-8') as file:
-            data = json.load(file)
-            chat.add_user_message("Доступные пространства кроме основного: ")
-            for workspace in data["workspace"]:
-                chat.add_user_message(workspace)
+memory_message = memory_read() +">"
+chat.add_user_message("<memory: " + memory_message)
+with open('tools_config.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+        chat.add_user_message("<workspace: ")
+        for workspace in data["workspace"]:
+            chat.add_user_message(workspace)
+        chat.add_user_message(">")
+system_ai = "<system:" + platform.system()
+chat.add_user_message(system_ai + ">")
 while True:
     mode = int(input("Выберите режим: 1 инструменты, 2 Фото     "))
     if mode == 1:
@@ -76,7 +81,10 @@ while True:
                 break
             if not user_input:
                 break
-            chat.add_user_message(user_input)
+            local_now = datetime.datetime.now()
+            x = "<time:" +local_now.strftime("%d/%m/%Y, %H:%M:%S")
+            time_message = x + ">"
+            chat.add_user_message(user_input + time_message)
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
