@@ -32,6 +32,9 @@ def chek_tools(pyti:str):
                         if data_info == "search_duckduckgo" and data[data_info] == 1:
                             x = tools + tools_config.tools_search_duckduckgo
                             tools = x
+                        if data_info == "question_user" and data[data_info] == 1:
+                            x = tools + tools_config.tools_question_user
+                            tools = x
                 return tools
 def profile_create():
           print("Выберите действие:")
