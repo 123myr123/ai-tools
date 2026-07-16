@@ -27,7 +27,7 @@ def chek_list_tools(name:str,pyti:str):
                 return 2
         rel_path = Path(pyti)
         abs_path = rel_path.resolve()
-        if not "ai-tools" in str(abs_path) :
+        if not str(Path("ai-tools").parent.resolve()) in str(abs_path) :
             with open('tools_config.json', 'r', encoding='utf-8') as file:
                 workspace = json.load(file)
                 for folder in workspace["workspace"]:
@@ -319,7 +319,7 @@ def read_file(name: str):
 def create_file(name: str, content: str):
     """Create a file with the given name and content."""
     logging.info("вызвон инструмент create_file")
-    chek = chek_list_tools("create_folder",name)
+    chek = chek_list_tools("create_file",name)
     if chek == 1:
             logging.info("создание файла отклонено име в бан листе")
             return "rejected by the system"
