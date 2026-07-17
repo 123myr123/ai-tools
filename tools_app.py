@@ -104,19 +104,35 @@ def profile_create():
               create_file(new_file,read_file(old_file))
 def print_fragment(fragment, round_index=0):
     print(fragment.content, end="", flush=True)
-def entry_history(profile:str,text:str,role:str,sesion:str,vkl:int):
-    if vkl == 1:
+def entry_history(profile:str,text:str,role:str,sesion:str):
         x = 'system_file/profile/' + profile
-        pyti = x + 'history/'
-        abs_pyti = Path(pyti + sesion).resolve
-        with open(abs_pyti, 'r', encoding='utf-8') as file:
+        pyti = x + '/history/'
+        abs_pyti = pyti + sesion
+        with open(str(abs_pyti), 'r', encoding='utf-8') as file:
             data = json.load(file)
             file.close
         new_message = {'role': role, 'content': text}
         data['messages'].append(new_message)
         new_message = {'role': role, 'content': text}
         data['messages'].append(new_message)
-        with open(abs_pyti, "w",encoding='utf-8') as f:
+        with open(str(abs_pyti), "w",encoding='utf-8') as f:
             json.dump(data, f)
-    else:
-         return None
+def read_history(profile:str,sesion:str):
+        x = 'system_file/profile/' + profile
+        pyti = x + '/history/'
+        abs_pyti = pyti + sesion
+        with open(str(abs_pyti), 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            file.close
+            return data
+def create_history(profile:str,sesion:str,promt:str):
+    x = 'system_file/profile/' + profile
+    pyti = x + '/history/'
+    abs_pyti = pyti + sesion
+    ai = {
+     'messages': [ 
+           {'role': 'system', 'content': promt}, 
+            ]
+        }
+    with open(abs_pyti, "w",encoding='utf-8') as f:
+        json.dump(ai, f)

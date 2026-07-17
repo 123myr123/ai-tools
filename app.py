@@ -1,7 +1,8 @@
+from flask import session
 import lmstudio as lms
 from system_file.tools import *
 import logging
-from tools_app import chek_tools, profile_create, print_fragment,entry_history
+from tools_app import chek_tools, profile_create, print_fragment,entry_history,read_history,create_history
 import platform
 import datetime
 
@@ -14,6 +15,8 @@ print("Выберите профиль из перечисленных")
 for x in read_folder("system_file/profile"):
     print(x)
 pyti = input("Выберите профиль: ")
+
+ 
 
 def memory_write(content:str):
      """Writing to the memory module. Entries are preserved between sessions."""
@@ -32,14 +35,16 @@ def memory_read():
     with open(pyti_config, "r", encoding='utf-8') as file:
         return file.read()
 y = ("system_file/profile/" +pyti)
-pyti_history = y + "/hitory"
-if read_folder(pyti_history) == "":
+pyti_history = y + "/history"
+if read_folder(pyti_history) == []:
+    session = input("Ведите название для этого чата:    ")
     logging.info("выбран профиль " +pyti)
     for config_file in read_folder("system_file/profile/" +pyti):
         y = ("system_file/profile/" +pyti)
         h = y + "/"
         pyti_config = h + config_file
         if config_file == "promt.txt":
+            create_history(pyti,session,read_file(pyti_config))
             chat = lms.Chat(read_file(pyti_config))
             logging.info("загружен системный промт")
         if config_file == "tools.json":
@@ -49,24 +54,28 @@ if read_folder(pyti_history) == "":
             logging.info("инстурменты установлены")
             logging.info(tools)
 else:
-    print("Обноружены прошлые сесии, выберите одну из них или оставте поле пустым, чтобы не сохронять историю")
+    print("Обноружены прошлые сесии, выберите одну из них или оставте поле пустым, чтобы начать новую сессию")
     for history in read_folder(pyti_history):
         print(history)
-        logging.info("выбран профиль " +pyti)
-        for config_file in read_folder("system_file/profile/" +pyti):
-            y = ("system_file/profile/" +pyti)
-            h = y + "/"
-            pyti_config = h + config_file
-            if config_file == "promt.txt":
-                chat = lms.Chat(read_file(pyti_config))
+    session = input()
+    logging.info("выбран профиль " +pyti)
+    for config_file in read_folder("system_file/profile/" +pyti):
+        y = ("system_file/profile/" +pyti)
+        h = y + "/"
+        pyti_config = h + config_file
+    if config_file == "promt.txt":
+            chat = lms.Chat.from_history(read_history(pyti,session))
             logging.info("загружен системный промт")
-            if config_file == "tools.json":
+    if config_file == "tools.json":
                 tools = chek_tools(pyti_config)
                 x = tools + [memory_read,memory_write]
                 tools = x
                 logging.info("инстурменты установлены")
                 logging.info(tools)
 
+def ai_histori(text):
+    entry_history(pyti,text,'assistant',session)
+    chat.add_assistant_response(text)
 
 SERVER_API_HOST = "localhost:1234"
 lms.set_sync_api_timeout(720000)
@@ -98,11 +107,12 @@ while True:
             x = "<time:" +local_now.strftime("%d/%m/%Y, %H:%M:%S")
             time_message = x + ">"
             chat.add_user_message(user_input + time_message)
+            entry_history(pyti,user_input + time_message,"user",session)
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
                 tools,
-                on_message=chat.append,
+                on_message=ai_histori,
                 on_prediction_fragment=print_fragment,
             )
             print()
