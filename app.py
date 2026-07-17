@@ -1,15 +1,9 @@
 import lmstudio as lms
 from system_file.tools import *
 import logging
-from tools_app import chek_tools, profile_create
+from tools_app import chek_tools, profile_create, print_fragment,entry_history
 import platform
 import datetime
-
-def print_fragment(fragment, round_index=0):
-    # .act() supplies the round index as the second parameter
-    # Setting a default value means the callback is also
-    # compatible with .complete() and .respond().
-    print(fragment.content, end="", flush=True)
 
 print("Выберите что сделать:")
 print("1 режим чата с ии")
@@ -25,8 +19,7 @@ def memory_write(content:str):
      """Writing to the memory module. Entries are preserved between sessions."""
 
      y = ("system_file/profile/" +pyti)
-     h = y + "/"
-     pyti_config = h + "memory.txt"
+     pyti_config = y + "/memory.txt"
      file = open(pyti_config,'a', encoding='utf-8')
      file.write(content)
      file.close()
@@ -35,25 +28,45 @@ def memory_write(content:str):
 def memory_read():
     """reads the memory module"""
     y = ("system_file/profile/" +pyti)
-    h = y + "/"
-    pyti_config = h + "memory.txt"
+    pyti_config = y + "/memory.txt"
     with open(pyti_config, "r", encoding='utf-8') as file:
         return file.read()
+y = ("system_file/profile/" +pyti)
+pyti_history = y + "/hitory"
+if read_folder(pyti_history) == "":
+    logging.info("выбран профиль " +pyti)
+    for config_file in read_folder("system_file/profile/" +pyti):
+        y = ("system_file/profile/" +pyti)
+        h = y + "/"
+        pyti_config = h + config_file
+        if config_file == "promt.txt":
+            chat = lms.Chat(read_file(pyti_config))
+            logging.info("загружен системный промт")
+        if config_file == "tools.json":
+            tools = chek_tools(pyti_config)
+            x = tools + [memory_read,memory_write]
+            tools = x
+            logging.info("инстурменты установлены")
+            logging.info(tools)
+else:
+    print("Обноружены прошлые сесии, выберите одну из них или оставте поле пустым, чтобы не сохронять историю")
+    for history in read_folder(pyti_history):
+        print(history)
+        logging.info("выбран профиль " +pyti)
+        for config_file in read_folder("system_file/profile/" +pyti):
+            y = ("system_file/profile/" +pyti)
+            h = y + "/"
+            pyti_config = h + config_file
+            if config_file == "promt.txt":
+                chat = lms.Chat(read_file(pyti_config))
+            logging.info("загружен системный промт")
+            if config_file == "tools.json":
+                tools = chek_tools(pyti_config)
+                x = tools + [memory_read,memory_write]
+                tools = x
+                logging.info("инстурменты установлены")
+                logging.info(tools)
 
-logging.info("выбран профиль " +pyti)
-for config_file in read_folder("system_file/profile/" +pyti):
-    y = ("system_file/profile/" +pyti)
-    h = y + "/"
-    pyti_config = h + config_file
-    if config_file == "promt.txt":
-        chat = lms.Chat(read_file(pyti_config))
-        logging.info("загружен системный промт")
-    if config_file == "tools.json":
-        tools = chek_tools(pyti_config)
-        x = tools + [memory_read,memory_write]
-        tools = x
-        logging.info("инстурменты установлены")
-        logging.info(tools)
 
 SERVER_API_HOST = "localhost:1234"
 lms.set_sync_api_timeout(720000)

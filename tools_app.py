@@ -1,6 +1,7 @@
 import tools_config
 import json
 from system_file.tools import *
+from pathlib import Path
 
 def chek_tools(pyti:str):
     with open(pyti, 'r', encoding='utf-8') as file: 
@@ -101,4 +102,21 @@ def profile_create():
               new_file = new_profile + "/tools.json"
               old_file = old_profile + "/tools.json"
               create_file(new_file,read_file(old_file))
-
+def print_fragment(fragment, round_index=0):
+    print(fragment.content, end="", flush=True)
+def entry_history(profile:str,text:str,role:str,sesion:str,vkl:int):
+    if vkl == 1:
+        x = 'system_file/profile/' + profile
+        pyti = x + 'history/'
+        abs_pyti = Path(pyti + sesion).resolve
+        with open(abs_pyti, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            file.close
+        new_message = {'role': role, 'content': text}
+        data['messages'].append(new_message)
+        new_message = {'role': role, 'content': text}
+        data['messages'].append(new_message)
+        with open(abs_pyti, "w",encoding='utf-8') as f:
+            json.dump(data, f)
+    else:
+         return None
