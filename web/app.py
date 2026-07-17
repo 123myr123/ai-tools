@@ -1,5 +1,3 @@
-
-
 from flask import Flask, request, jsonify, render_template
 import lmstudio as lms
 import json
@@ -36,22 +34,29 @@ def chat():
     data = request.get_json()
     user_message = data.get('message', '')
     text= ai_chat(user_message)
-    start =text.find('<|channel>')
-    end =text.find('<channel|>')
-    result = text[start + 1:end]
-    # Тестовые данные – заполняем все поля
-    thinking_text = (
-        f"{result}"
-    )
+    if not text.find('<channel|>') == -1:
+        start =text.find('<|channel>')
+        end =text.find('<channel|>')
+        result = text[start + 1:end]
+        # Тестовые данные – заполняем все поля
+        thinking_text = (
+            f"{result}"
+        )
 
-    response_text = (
-        f"{text[end:]}"
-    )
+        response_text = (
+            f"{text[end:]}"
+        )
 
-    return jsonify({
-        "thinking": thinking_text,
-        "response": response_text
-    })
-
+        return jsonify({
+            "thinking": thinking_text,
+            "response": response_text
+        })
+    else:
+            response_text = (
+                     f"{text}"
+                 )
+            return jsonify({
+                "response": response_text
+            })
 if __name__ == '__main__':
     app.run(debug=True)
