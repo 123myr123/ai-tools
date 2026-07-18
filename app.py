@@ -1,10 +1,10 @@
-from flask import session
 import lmstudio as lms
 from system_file.tools import *
 import logging
 from tools_app import chek_tools, profile_create, print_fragment,entry_history,read_history,create_history
 import platform
 import datetime
+import json
 
 print("Выберите что сделать:")
 print("1 режим чата с ии")
@@ -37,7 +37,8 @@ def memory_read():
 y = ("system_file/profile/" +pyti)
 pyti_history = y + "/history"
 if read_folder(pyti_history) == []:
-    session = input("Ведите название для этого чата:    ")
+    user_session = input("Ведите название для этого чата:    ")
+    session = user_session +".json"
     logging.info("выбран профиль " +pyti)
     for config_file in read_folder("system_file/profile/" +pyti):
         y = ("system_file/profile/" +pyti)
@@ -57,24 +58,43 @@ else:
     print("Обноружены прошлые сесии, выберите одну из них или оставте поле пустым, чтобы начать новую сессию")
     for history in read_folder(pyti_history):
         print(history)
-    session = input()
-    logging.info("выбран профиль " +pyti)
-    for config_file in read_folder("system_file/profile/" +pyti):
-        y = ("system_file/profile/" +pyti)
-        h = y + "/"
-        pyti_config = h + config_file
-    if config_file == "promt.txt":
-            chat = lms.Chat.from_history(read_history(pyti,session))
-            logging.info("загружен системный промт")
-    if config_file == "tools.json":
+    user_session = input()
+    if user_session == "" or user_session == None:
+        user_session = input("Ведите название для этого чата:    ")
+        session = user_session +".json"
+        logging.info("выбран профиль " +pyti)
+        for config_file in read_folder("system_file/profile/" +pyti):
+            y = ("system_file/profile/" +pyti)
+            h = y + "/"
+            pyti_config = h + config_file
+            if config_file == "promt.txt":
+                create_history(pyti,session,read_file(pyti_config))
+                chat = lms.Chat(read_file(pyti_config))
+                logging.info("загружен системный промт")
+            if config_file == "tools.json":
                 tools = chek_tools(pyti_config)
                 x = tools + [memory_read,memory_write]
                 tools = x
                 logging.info("инстурменты установлены")
                 logging.info(tools)
-
+    else:
+        session = user_session +".json"
+        logging.info("выбран профиль " +pyti)
+        for config_file in read_folder("system_file/profile/" +pyti):
+            y = ("system_file/profile/" +pyti)
+            h = y + "/"
+            pyti_config = h + config_file
+            if config_file == "promt.txt":
+                chat = lms.Chat.from_history(read_history(pyti,session))
+                logging.info("загружен системный промт")
+            if config_file == "tools.json":
+                tools = chek_tools(pyti_config)
+                x = tools + [memory_read,memory_write]
+                tools = x
+                logging.info("инстурменты установлены")
+                logging.info(tools)
 def ai_histori(text):
-    entry_history(pyti,text,'assistant',session)
+    print(text)
     chat.add_assistant_response(text)
 
 SERVER_API_HOST = "localhost:1234"
@@ -107,12 +127,13 @@ while True:
             x = "<time:" +local_now.strftime("%d/%m/%Y, %H:%M:%S")
             time_message = x + ">"
             chat.add_user_message(user_input + time_message)
-            entry_history(pyti,user_input + time_message,"user",session)
+            user = user_input + time_message
+            entry_history(pyti,user,"user",session)
             print("Bot: ", end="", flush=True)
             model.act(
                 chat,
                 tools,
-                on_message=ai_histori,
+                on_message= chat.append,
                 on_prediction_fragment=print_fragment,
             )
             print()
@@ -124,7 +145,7 @@ while True:
         chat.add_user_message(user_input, images=[image_handle])
         prediction_stream = model.respond_stream(
             chat,
-            on_message=chat.append,
+            on_message=handle_on_message
         )
         print("Bot: ", end="", flush=True)
         for fragment in prediction_stream:

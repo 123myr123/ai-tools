@@ -113,8 +113,6 @@ def entry_history(profile:str,text:str,role:str,sesion:str):
             file.close
         new_message = {'role': role, 'content': text}
         data['messages'].append(new_message)
-        new_message = {'role': role, 'content': text}
-        data['messages'].append(new_message)
         with open(str(abs_pyti), "w",encoding='utf-8') as f:
             json.dump(data, f)
 def read_history(profile:str,sesion:str):

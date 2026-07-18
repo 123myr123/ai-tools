@@ -1,0 +1,1237 @@
+2026-07-17 22:04:08,886 INFO вызвон инструмент read_folder
+2026-07-17 22:04:08,889 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:04:08,889 INFO ['mge', 'system']
+2026-07-17 22:04:13,206 INFO вызвон инструмент read_folder
+2026-07-17 22:04:13,208 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:05:01,094 INFO вызвон инструмент read_folder
+2026-07-17 22:05:01,095 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:05:01,095 INFO ['mge', 'system']
+2026-07-17 22:05:04,341 INFO вызвон инструмент read_folder
+2026-07-17 22:05:04,342 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:05:04,343 INFO []
+2026-07-17 22:05:07,541 INFO выбран профиль system
+2026-07-17 22:05:07,541 INFO вызвон инструмент read_folder
+2026-07-17 22:05:07,542 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:05:07,542 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:05:07,542 INFO вызвон инструмент read_file
+2026-07-17 22:05:07,549 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:05:07,550 INFO вызвон инструмент read_file
+2026-07-17 22:05:07,552 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:05:07,554 INFO загружен системный промт
+2026-07-17 22:05:07,560 INFO инстурменты установлены
+2026-07-17 22:05:07,561 INFO [<function create_file at 0x000001C339A7E480>, <function read_file at 0x000001C339A7E3E0>, <function write_file at 0x000001C339A7E2A0>, <function read_folder at 0x000001C339A7E200>, <function create_folder at 0x000001C339A7E160>, <function extract_text_from_url at 0x000001C339A7D3A0>, <function search_duckduckgo at 0x000001C339A3D3A0>, <function question_user at 0x000001C339A7E340>, <function memory_read at 0x000001C339A99D00>, <function memory_write at 0x000001C339A7EC00>]
+2026-07-17 22:05:07,582 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001C33997A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:05:07,841 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:05:08,341 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:05:08,343 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:05:13,213 INFO Выброн режим работы с инструментами
+2026-07-17 22:05:18,793 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError('Object of type AssistantResponse is not JSON serializable')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 78, in ai_histori
+    entry_history(pyti,text,'assistant',session)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\tools_app.py", line 119, in entry_history
+    json.dump(data, f)
+    ~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 181, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 435, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 328, in _iterencode_list
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type AssistantResponse is not JSON serializable
+2026-07-17 22:05:55,898 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:05:55,899 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:05:55,899 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001C33997A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:07:04,470 INFO вызвон инструмент read_folder
+2026-07-17 22:07:04,471 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:07:04,471 INFO ['mge', 'system']
+2026-07-17 22:07:07,213 INFO вызвон инструмент read_folder
+2026-07-17 22:07:07,215 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:07:07,215 INFO []
+2026-07-17 22:07:08,814 INFO выбран профиль system
+2026-07-17 22:07:08,814 INFO вызвон инструмент read_folder
+2026-07-17 22:07:08,815 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:07:08,816 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:07:08,816 INFO вызвон инструмент read_file
+2026-07-17 22:07:08,818 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:07:08,820 INFO вызвон инструмент read_file
+2026-07-17 22:07:08,822 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:07:08,822 INFO загружен системный промт
+2026-07-17 22:07:08,822 INFO инстурменты установлены
+2026-07-17 22:07:08,822 INFO [<function create_file at 0x000002A4EBC7E480>, <function read_file at 0x000002A4EBC7E3E0>, <function write_file at 0x000002A4EBC7E2A0>, <function read_folder at 0x000002A4EBC7E200>, <function create_folder at 0x000002A4EBC7E160>, <function extract_text_from_url at 0x000002A4EBC7D3A0>, <function search_duckduckgo at 0x000002A4EBC393A0>, <function question_user at 0x000002A4EBC7E340>, <function memory_read at 0x000002A4EBC99D00>, <function memory_write at 0x000002A4EBC7EC00>]
+2026-07-17 22:07:08,827 INFO {"client": "<lmstudio.sync_api.Client object at 0x000002A4EBB7A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:07:09,048 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:07:09,542 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:07:09,544 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:07:14,134 INFO Выброн режим работы с инструментами
+2026-07-17 22:07:20,357 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError('Object of type AssistantResponse is not JSON serializable')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 78, in ai_histori
+    entry_history(pyti,text,'assistant',session)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\tools_app.py", line 119, in entry_history
+    json.dump(data, f)
+    ~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 181, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 435, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 328, in _iterencode_list
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type AssistantResponse is not JSON serializable
+2026-07-17 22:09:36,595 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:09:36,595 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:09:36,596 INFO {"client": "<lmstudio.sync_api.Client object at 0x000002A4EBB7A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:10:52,077 INFO вызвон инструмент read_folder
+2026-07-17 22:10:52,087 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:10:52,087 INFO ['mge', 'system']
+2026-07-17 22:10:55,542 INFO вызвон инструмент read_folder
+2026-07-17 22:10:55,543 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:10:55,544 INFO ['1.json']
+2026-07-17 22:10:55,544 INFO вызвон инструмент read_folder
+2026-07-17 22:10:55,545 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:10:55,545 INFO ['1.json']
+2026-07-17 22:10:58,670 INFO выбран профиль system
+2026-07-17 22:10:58,670 INFO вызвон инструмент read_folder
+2026-07-17 22:10:58,672 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:10:58,672 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:10:58,678 INFO инстурменты установлены
+2026-07-17 22:10:58,678 INFO [<function create_file at 0x0000017CC2E7E480>, <function read_file at 0x0000017CC2E7E3E0>, <function write_file at 0x0000017CC2E7E2A0>, <function read_folder at 0x0000017CC2E7E200>, <function create_folder at 0x0000017CC2E7E160>, <function extract_text_from_url at 0x0000017CC2E7D3A0>, <function search_duckduckgo at 0x0000017CC2E3D3A0>, <function question_user at 0x0000017CC2E7E340>, <function memory_read at 0x0000017CC2EA9D00>, <function memory_write at 0x0000017CC2E7EC00>]
+2026-07-17 22:10:58,695 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000017CC2A8A3C0>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:10:58,912 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:10:59,401 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:10:59,405 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:10:59,424 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:10:59,425 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:10:59,429 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000017CC2A8A3C0>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:14:05,398 INFO вызвон инструмент read_folder
+2026-07-17 22:14:05,400 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:14:05,400 INFO ['mge', 'system']
+2026-07-17 22:14:09,213 INFO вызвон инструмент read_folder
+2026-07-17 22:14:09,215 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:14:09,215 INFO ['1.json']
+2026-07-17 22:14:09,215 INFO вызвон инструмент read_folder
+2026-07-17 22:14:09,216 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:14:09,216 INFO ['1.json']
+2026-07-17 22:14:12,206 INFO выбран профиль system
+2026-07-17 22:14:12,206 INFO вызвон инструмент read_folder
+2026-07-17 22:14:12,207 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:14:12,208 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:14:12,208 INFO вызвон инструмент read_file
+2026-07-17 22:14:12,217 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:14:12,219 INFO вызвон инструмент read_file
+2026-07-17 22:14:12,221 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:14:12,221 INFO загружен системный промт
+2026-07-17 22:14:12,222 INFO инстурменты установлены
+2026-07-17 22:14:12,222 INFO [<function create_file at 0x000001834F4AA480>, <function read_file at 0x000001834F4AA3E0>, <function write_file at 0x000001834F4AA2A0>, <function read_folder at 0x000001834F4AA200>, <function create_folder at 0x000001834F4AA160>, <function extract_text_from_url at 0x000001834F4A93A0>, <function search_duckduckgo at 0x000001834F46D3A0>, <function question_user at 0x000001834F4AA340>, <function memory_read at 0x000001834F4C9D00>, <function memory_write at 0x000001834F4AAC00>]
+2026-07-17 22:14:12,226 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001834F38A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:14:12,451 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:14:12,950 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:14:12,955 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:14:17,590 INFO Выброн режим работы с инструментами
+2026-07-17 22:14:22,484 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError('Object of type AssistantResponse is not JSON serializable')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 97, in ai_histori
+    entry_history(pyti,message,'assistant',session)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\tools_app.py", line 117, in entry_history
+    json.dump(data, f)
+    ~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 181, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 435, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 328, in _iterencode_list
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type AssistantResponse is not JSON serializable
+2026-07-17 22:15:55,601 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:15:55,602 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:15:55,603 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001834F38A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:16:04,982 INFO вызвон инструмент read_folder
+2026-07-17 22:16:04,984 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:16:04,984 INFO ['mge', 'system']
+2026-07-17 22:16:08,414 INFO вызвон инструмент read_folder
+2026-07-17 22:16:08,416 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:16:08,416 INFO ['1.json', '2.json']
+2026-07-17 22:16:08,416 INFO вызвон инструмент read_folder
+2026-07-17 22:16:08,417 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:16:08,417 INFO ['1.json', '2.json']
+2026-07-17 22:16:09,862 INFO выбран профиль system
+2026-07-17 22:16:09,862 INFO вызвон инструмент read_folder
+2026-07-17 22:16:09,863 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:16:09,863 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:16:18,798 INFO вызвон инструмент read_folder
+2026-07-17 22:16:18,799 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:16:18,800 INFO ['mge', 'system']
+2026-07-17 22:16:21,606 INFO вызвон инструмент read_folder
+2026-07-17 22:16:21,608 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:16:21,608 INFO ['1.json', '2.json']
+2026-07-17 22:16:21,608 INFO вызвон инструмент read_folder
+2026-07-17 22:16:21,609 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:16:21,609 INFO ['1.json', '2.json']
+2026-07-17 22:16:26,294 INFO выбран профиль system
+2026-07-17 22:16:26,294 INFO вызвон инструмент read_folder
+2026-07-17 22:16:26,295 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:16:26,295 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:16:26,295 INFO вызвон инструмент read_file
+2026-07-17 22:16:26,297 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:16:26,298 INFO вызвон инструмент read_file
+2026-07-17 22:16:26,300 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:16:26,300 INFO загружен системный промт
+2026-07-17 22:16:26,301 INFO инстурменты установлены
+2026-07-17 22:16:26,301 INFO [<function create_file at 0x0000010DD147E480>, <function read_file at 0x0000010DD147E3E0>, <function write_file at 0x0000010DD147E2A0>, <function read_folder at 0x0000010DD147E200>, <function create_folder at 0x0000010DD147E160>, <function extract_text_from_url at 0x0000010DD147D3A0>, <function search_duckduckgo at 0x0000010DD14413A0>, <function question_user at 0x0000010DD147E340>, <function memory_read at 0x0000010DD149DD00>, <function memory_write at 0x0000010DD147EC00>]
+2026-07-17 22:16:26,305 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000010DD137A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:16:26,529 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:16:27,027 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:16:27,030 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:16:29,054 INFO Выброн режим работы с инструментами
+2026-07-17 22:16:33,254 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\\\\u043f\\\\u0440\\\\u0438\\\\u0432\\\\u0435\\\\u0442\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    chat.add_assistant_response(message)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "\u043f\u0440\u0438\u0432\u0435\u0442",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-17 22:17:13,615 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:17:13,615 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:17:13,617 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000010DD137A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:17:18,039 INFO вызвон инструмент read_folder
+2026-07-17 22:17:18,040 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:17:18,040 INFO ['mge', 'system']
+2026-07-17 22:17:26,358 INFO вызвон инструмент read_folder
+2026-07-17 22:17:26,360 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:17:26,360 INFO ['1.json', '2.json', '3.json']
+2026-07-17 22:17:26,360 INFO вызвон инструмент read_folder
+2026-07-17 22:17:26,361 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:17:26,361 INFO ['1.json', '2.json', '3.json']
+2026-07-17 22:17:29,511 INFO выбран профиль system
+2026-07-17 22:17:29,511 INFO вызвон инструмент read_folder
+2026-07-17 22:17:29,512 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:17:29,512 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:17:29,513 INFO загружен системный промт
+2026-07-17 22:17:29,513 INFO инстурменты установлены
+2026-07-17 22:17:29,513 INFO [<function create_file at 0x000001A57E59E480>, <function read_file at 0x000001A57E59E3E0>, <function write_file at 0x000001A57E59E2A0>, <function read_folder at 0x000001A57E59E200>, <function create_folder at 0x000001A57E59E160>, <function extract_text_from_url at 0x000001A57E59D3A0>, <function search_duckduckgo at 0x000001A57E55D3A0>, <function question_user at 0x000001A57E59E340>, <function memory_read at 0x000001A57E5BDD00>, <function memory_write at 0x000001A57E59EC00>]
+2026-07-17 22:17:29,519 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001A57E47A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:17:29,750 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:17:30,229 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:17:30,233 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:17:31,510 INFO Выброн режим работы с инструментами
+2026-07-17 22:17:40,117 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\\\\u0417\\\\u0434\\\\u0440\\\\u0430\\\\u0432\\\\u0441\\\\u0442\\\\u0432\\\\u0443\\\\u0439\\\\u0442\\\\u0435! \\\\u0423 \\\\u043c\\\\u0435\\\\u043d\\\\u044f \\\\u0432\\\\u0441\\\\u0451 \\\\u0445\\\\u043e\\\\u0440\\\\u043e\\\\u0448\\\\u043e. \\\\u042f \\\\u0433\\\\u043e\\\\u0442\\\\u043e\\\\u0432 \\\\u043f\\\\u043e\\\\u043c\\\\u043e\\\\u0447\\\\u044c \\\\u0432\\\\u0430\\\\u043c \\\\u0441 \\\\u0432\\\\u0430\\\\u0448\\\\u0438\\\\u043c\\\\u0438 \\\\u0437\\\\u0430\\\\u0434\\\\u0430\\\\u0447\\\\u0430\\\\u043c\\\\u0438. \\\\u0427\\\\u0435\\\\u043c \\\\u044f \\\\u043c\\\\u043e\\\\u0433\\\\u0443 \\\\u0431\\\\u044b\\\\u0442\\\\u044c \\\\u043f\\\\u043e\\\\u043b\\\\u0435\\\\u0437\\\\u0435\\\\u043d \\\\u0441\\\\u0435\\\\u0433\\\\u043e\\\\u0434\\\\u043d\\\\u044f?\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    chat.add_assistant_response(message)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435! \u0423 \u043c\u0435\u043d\u044f \u0432\u0441\u0451 \u0445\u043e\u0440\u043e\u0448\u043e. \u042f \u0433\u043e\u0442\u043e\u0432 \u043f\u043e\u043c\u043e\u0447\u044c \u0432\u0430\u043c \u0441 \u0432\u0430\u0448\u0438\u043c\u0438 \u0437\u0430\u0434\u0430\u0447\u0430\u043c\u0438. \u0427\u0435\u043c \u044f \u043c\u043e\u0433\u0443 \u0431\u044b\u0442\u044c \u043f\u043e\u043b\u0435\u0437\u0435\u043d \u0441\u0435\u0433\u043e\u0434\u043d\u044f?",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-17 22:17:56,248 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\\\\u0421\\\\u043e\\\\u043e\\\\u0431\\\\u0449\\\\u0435\\\\u043d\\\\u0438\\\\u044f \\\\u0432 \\\\u044d\\\\u0442\\\\u043e\\\\u043c \\\\u0434\\\\u0438\\\\u0430\\\\u043b\\\\u043e\\\\u0433\\\\u0435:\\\\n\\\\nUser: \\\\u043f\\\\u0440\\\\u0438\\\\u0432\\\\u0435\\\\u0442\\\\nAssistant: AssistantResponse.from_dict({\\\\n  \\\\\"content\\\\\": [\\\\n    {\\\\n      \\\\\"text\\\\\": \\\\\"\\\\\\\\u043f\\\\\\\\u0440\\\\\\\\u0438\\\\\\\\u0432\\\\\\\\u0435\\\\\\\\u0442\\\\\",\\\\n      \\\\\"type\\\\\": \\\\\"text\\\\\"\\\\n    }\\\\n  ],\\\\n  \\\\\"role\\\\\": \\\\\"assistant\\\\\"\\\\n})\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    chat.add_assistant_response(message)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f \u0432 \u044d\u0442\u043e\u043c \u0434\u0438\u0430\u043b\u043e\u0433\u0435:\n\nUser: \u043f\u0440\u0438\u0432\u0435\u0442\nAssistant: AssistantResponse.from_dict({\n  \"content\": [\n    {\n      \"text\": \"\\u043f\\u0440\\u0438\\u0432\\u0435\\u0442\",\n      \"type\": \"text\"\n    }\n  ],\n  \"role\": \"assistant\"\n})",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-17 22:24:46,707 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:24:46,707 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:24:46,709 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001A57E47A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:24:53,919 INFO вызвон инструмент read_folder
+2026-07-17 22:24:53,920 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:24:53,920 INFO ['mge', 'system']
+2026-07-17 22:24:57,510 INFO вызвон инструмент read_folder
+2026-07-17 22:24:57,511 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:24:57,511 INFO ['1.json', '2.json', '3.json']
+2026-07-17 22:24:57,511 INFO вызвон инструмент read_folder
+2026-07-17 22:24:57,512 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:24:57,512 INFO ['1.json', '2.json', '3.json']
+2026-07-17 22:24:58,879 INFO выбран профиль system
+2026-07-17 22:24:58,879 INFO вызвон инструмент read_folder
+2026-07-17 22:24:58,880 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:24:58,880 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:24:58,881 INFO загружен системный промт
+2026-07-17 22:24:58,881 INFO инстурменты установлены
+2026-07-17 22:24:58,881 INFO [<function create_file at 0x0000016D9987E480>, <function read_file at 0x0000016D9987E3E0>, <function write_file at 0x0000016D9987E2A0>, <function read_folder at 0x0000016D9987E200>, <function create_folder at 0x0000016D9987E160>, <function extract_text_from_url at 0x0000016D9987D3A0>, <function search_duckduckgo at 0x0000016D9983D3A0>, <function question_user at 0x0000016D9987E340>, <function memory_read at 0x0000016D9989DD00>, <function memory_write at 0x0000016D9987EC00>]
+2026-07-17 22:24:58,886 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000016D9977A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:24:59,110 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:24:59,594 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:24:59,595 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:25:03,622 INFO Выброн режим работы с инструментами
+2026-07-17 22:25:17,221 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:27:04,793 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:27:04,793 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:27:04,795 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000016D9977A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:27:11,471 INFO вызвон инструмент read_folder
+2026-07-17 22:27:11,472 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:27:11,472 INFO ['mge', 'system']
+2026-07-17 22:27:14,894 INFO вызвон инструмент read_folder
+2026-07-17 22:27:14,895 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:27:14,896 INFO ['1.json', '2.json', '3.json']
+2026-07-17 22:27:14,896 INFO вызвон инструмент read_folder
+2026-07-17 22:27:14,897 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:27:14,897 INFO ['1.json', '2.json', '3.json']
+2026-07-17 22:27:17,374 INFO выбран профиль system
+2026-07-17 22:27:17,374 INFO вызвон инструмент read_folder
+2026-07-17 22:27:17,375 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:27:17,376 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:27:17,376 INFO вызвон инструмент read_file
+2026-07-17 22:27:17,378 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:27:17,380 INFO вызвон инструмент read_file
+2026-07-17 22:27:17,382 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:27:17,382 INFO загружен системный промт
+2026-07-17 22:27:17,382 INFO инстурменты установлены
+2026-07-17 22:27:17,382 INFO [<function create_file at 0x0000026E9C47E480>, <function read_file at 0x0000026E9C47E3E0>, <function write_file at 0x0000026E9C47E2A0>, <function read_folder at 0x0000026E9C47E200>, <function create_folder at 0x0000026E9C47E160>, <function extract_text_from_url at 0x0000026E9C47D3A0>, <function search_duckduckgo at 0x0000026E9C4413A0>, <function question_user at 0x0000026E9C47E340>, <function memory_read at 0x0000026E9C49DD00>, <function memory_write at 0x0000026E9C47EC00>]
+2026-07-17 22:27:17,387 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000026E9C37A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:27:17,612 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:27:18,107 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:27:18,109 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:27:20,117 INFO Выброн режим работы с инструментами
+2026-07-17 22:27:25,216 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:28:15,424 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:28:24,237 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:29:58,696 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:30:49,039 INFO Выброн режим работы с инструментами
+2026-07-17 22:30:50,844 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:30:53,876 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:30:55,465 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:30:56,593 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:30:58,410 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError(\"'module' object is not callable\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.decoder(message)
+TypeError: 'module' object is not callable
+2026-07-17 22:31:04,104 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:31:04,104 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:31:04,107 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000026E9C37A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:32:45,390 INFO вызвон инструмент read_folder
+2026-07-17 22:32:45,392 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:32:45,392 INFO ['mge', 'system']
+2026-07-17 22:32:47,999 INFO вызвон инструмент read_folder
+2026-07-17 22:32:48,000 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:32:48,000 INFO ['1.json', '2.json', '3.json', '4.json']
+2026-07-17 22:32:48,000 INFO вызвон инструмент read_folder
+2026-07-17 22:32:48,001 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:32:48,001 INFO ['1.json', '2.json', '3.json', '4.json']
+2026-07-17 22:32:52,039 INFO выбран профиль system
+2026-07-17 22:32:52,039 INFO вызвон инструмент read_folder
+2026-07-17 22:32:52,040 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:32:52,040 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:32:52,040 INFO вызвон инструмент read_file
+2026-07-17 22:32:52,042 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:32:52,045 INFO вызвон инструмент read_file
+2026-07-17 22:32:52,046 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:32:52,047 INFO загружен системный промт
+2026-07-17 22:32:52,047 INFO инстурменты установлены
+2026-07-17 22:32:52,047 INFO [<function create_file at 0x00000231A697E480>, <function read_file at 0x00000231A697E3E0>, <function write_file at 0x00000231A697E2A0>, <function read_folder at 0x00000231A697E200>, <function create_folder at 0x00000231A697E160>, <function extract_text_from_url at 0x00000231A697D3A0>, <function search_duckduckgo at 0x00000231A69413A0>, <function question_user at 0x00000231A697E340>, <function memory_read at 0x00000231A699DD00>, <function memory_write at 0x00000231A697EC00>]
+2026-07-17 22:32:52,051 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000231A687A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:32:52,310 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:32:52,806 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:32:52,809 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:32:57,103 INFO Выброн режим работы с инструментами
+2026-07-17 22:33:02,496 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'AssistantResponse' object has no attribute 'read'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.load(message)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 298, in load
+    return loads(fp.read(),
+                 ^^^^^^^
+AttributeError: 'AssistantResponse' object has no attribute 'read'
+2026-07-17 22:34:57,454 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'AssistantResponse' object has no attribute 'read'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.load(message)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 298, in load
+    return loads(fp.read(),
+                 ^^^^^^^
+AttributeError: 'AssistantResponse' object has no attribute 'read'
+2026-07-17 22:35:33,870 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:35:33,871 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:35:33,874 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000231A687A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:35:37,095 INFO вызвон инструмент read_folder
+2026-07-17 22:35:37,096 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:35:37,096 INFO ['mge', 'system']
+2026-07-17 22:35:39,543 INFO вызвон инструмент read_folder
+2026-07-17 22:35:39,544 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:35:39,544 INFO ['1.json', '2.json', '3.json', '4.json', '5.json']
+2026-07-17 22:35:39,544 INFO вызвон инструмент read_folder
+2026-07-17 22:35:39,545 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:35:39,545 INFO ['1.json', '2.json', '3.json', '4.json', '5.json']
+2026-07-17 22:35:42,054 INFO выбран профиль system
+2026-07-17 22:35:42,054 INFO вызвон инструмент read_folder
+2026-07-17 22:35:42,055 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:35:42,055 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:35:42,055 INFO вызвон инструмент read_file
+2026-07-17 22:35:42,057 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:35:42,059 INFO вызвон инструмент read_file
+2026-07-17 22:35:42,060 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:35:42,061 INFO загружен системный промт
+2026-07-17 22:35:42,061 INFO инстурменты установлены
+2026-07-17 22:35:42,061 INFO [<function create_file at 0x000002A85F18E480>, <function read_file at 0x000002A85F18E3E0>, <function write_file at 0x000002A85F18E2A0>, <function read_folder at 0x000002A85F18E200>, <function create_folder at 0x000002A85F18E160>, <function extract_text_from_url at 0x000002A85F18D3A0>, <function search_duckduckgo at 0x000002A85F1513A0>, <function question_user at 0x000002A85F18E340>, <function memory_read at 0x000002A85F1ADD00>, <function memory_write at 0x000002A85F18EC00>]
+2026-07-17 22:35:42,065 INFO {"client": "<lmstudio.sync_api.Client object at 0x000002A85F07A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:35:42,296 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:35:42,778 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:35:42,783 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:35:43,807 INFO Выброн режим работы с инструментами
+2026-07-17 22:35:49,838 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'str' object has no attribute 'read'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    ai = json.load(str(message))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 298, in load
+    return loads(fp.read(),
+                 ^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+2026-07-17 22:40:17,626 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:40:17,627 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:40:17,630 INFO {"client": "<lmstudio.sync_api.Client object at 0x000002A85F07A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:40:21,223 INFO вызвон инструмент read_folder
+2026-07-17 22:40:21,225 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:40:21,225 INFO ['mge', 'system']
+2026-07-17 22:40:24,798 INFO вызвон инструмент read_folder
+2026-07-17 22:40:24,800 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:40:24,800 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json']
+2026-07-17 22:40:24,800 INFO вызвон инструмент read_folder
+2026-07-17 22:40:24,801 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:40:24,801 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json']
+2026-07-17 22:40:28,198 INFO выбран профиль system
+2026-07-17 22:40:28,198 INFO вызвон инструмент read_folder
+2026-07-17 22:40:28,200 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:40:28,200 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:40:34,407 INFO вызвон инструмент read_folder
+2026-07-17 22:40:34,408 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:40:34,408 INFO ['mge', 'system']
+2026-07-17 22:40:36,863 INFO вызвон инструмент read_folder
+2026-07-17 22:40:36,865 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:40:36,865 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json']
+2026-07-17 22:40:36,866 INFO вызвон инструмент read_folder
+2026-07-17 22:40:36,867 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:40:36,867 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json']
+2026-07-17 22:40:40,014 INFO выбран профиль system
+2026-07-17 22:40:40,014 INFO вызвон инструмент read_folder
+2026-07-17 22:40:40,015 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:40:40,016 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:40:40,016 INFO вызвон инструмент read_file
+2026-07-17 22:40:40,018 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:40:40,019 INFO вызвон инструмент read_file
+2026-07-17 22:40:40,020 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:40:40,020 INFO загружен системный промт
+2026-07-17 22:40:40,021 INFO инстурменты установлены
+2026-07-17 22:40:40,021 INFO [<function create_file at 0x000001E0C9D7E480>, <function read_file at 0x000001E0C9D7E3E0>, <function write_file at 0x000001E0C9D7E2A0>, <function read_folder at 0x000001E0C9D7E200>, <function create_folder at 0x000001E0C9D7E160>, <function extract_text_from_url at 0x000001E0C9D7D3A0>, <function search_duckduckgo at 0x000001E0C9D3D3A0>, <function question_user at 0x000001E0C9D7E340>, <function memory_read at 0x000001E0C9D9DD00>, <function memory_write at 0x000001E0C9D7EC00>]
+2026-07-17 22:40:40,026 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001E0C9C7E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:40:40,257 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:40:40,737 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:40:40,739 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:40:56,527 INFO Выброн режим работы с инструментами
+2026-07-17 22:40:59,508 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'AssistantResponse' object has no attribute 'toString'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 142, in <lambda>
+    on_message= lambda msg: ai_histori(msg.toString()),
+                                       ^^^^^^^^^^^^
+AttributeError: 'AssistantResponse' object has no attribute 'toString'
+2026-07-17 22:41:16,319 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:41:16,320 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:41:16,323 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001E0C9C7E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:41:40,087 INFO вызвон инструмент read_folder
+2026-07-17 22:41:40,089 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:41:40,089 INFO ['mge', 'system']
+2026-07-17 22:41:43,767 INFO вызвон инструмент read_folder
+2026-07-17 22:41:43,768 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:41:43,768 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'test.json']
+2026-07-17 22:41:43,768 INFO вызвон инструмент read_folder
+2026-07-17 22:41:43,769 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:41:43,769 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'test.json']
+2026-07-17 22:41:52,855 INFO выбран профиль system
+2026-07-17 22:41:52,855 INFO вызвон инструмент read_folder
+2026-07-17 22:41:52,856 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:41:52,856 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:41:52,857 INFO вызвон инструмент read_file
+2026-07-17 22:41:52,858 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:41:52,861 INFO вызвон инструмент read_file
+2026-07-17 22:41:52,863 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:41:52,864 INFO загружен системный промт
+2026-07-17 22:41:52,864 INFO инстурменты установлены
+2026-07-17 22:41:52,864 INFO [<function create_file at 0x000001946277E480>, <function read_file at 0x000001946277E3E0>, <function write_file at 0x000001946277E2A0>, <function read_folder at 0x000001946277E200>, <function create_folder at 0x000001946277E160>, <function extract_text_from_url at 0x000001946277D3A0>, <function search_duckduckgo at 0x00000194627413A0>, <function question_user at 0x000001946277E340>, <function memory_read at 0x000001946279DD00>, <function memory_write at 0x000001946277EC00>]
+2026-07-17 22:41:52,870 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001946267E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:41:53,119 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:41:53,597 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:41:53,598 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:41:55,262 INFO Выброн режим работы с инструментами
+2026-07-17 22:42:00,297 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'AssistantResponse' object has no attribute 'toString'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 137, in <lambda>
+    on_message= lambda msg: ai_histori(msg.toString()),
+                                       ^^^^^^^^^^^^
+AttributeError: 'AssistantResponse' object has no attribute 'toString'
+2026-07-17 22:47:12,739 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:47:12,739 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:47:12,740 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001946267E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:47:20,926 INFO вызвон инструмент read_folder
+2026-07-17 22:47:20,928 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:47:20,928 INFO ['mge', 'system']
+2026-07-17 22:47:24,383 INFO вызвон инструмент read_folder
+2026-07-17 22:47:24,385 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:47:24,385 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'test.json', 'гоол.json']
+2026-07-17 22:47:24,385 INFO вызвон инструмент read_folder
+2026-07-17 22:47:24,386 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:47:24,386 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'test.json', 'гоол.json']
+2026-07-17 22:47:27,815 INFO выбран профиль system
+2026-07-17 22:47:27,815 INFO вызвон инструмент read_folder
+2026-07-17 22:47:27,817 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:47:27,817 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:47:27,817 INFO вызвон инструмент read_file
+2026-07-17 22:47:27,819 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:47:27,820 INFO вызвон инструмент read_file
+2026-07-17 22:47:27,822 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:47:27,822 INFO загружен системный промт
+2026-07-17 22:47:27,823 INFO инстурменты установлены
+2026-07-17 22:47:27,823 INFO [<function create_file at 0x0000018C66EAE480>, <function read_file at 0x0000018C66EAE3E0>, <function write_file at 0x0000018C66EAE2A0>, <function read_folder at 0x0000018C66EAE200>, <function create_folder at 0x0000018C66EAE160>, <function extract_text_from_url at 0x0000018C66EAD3A0>, <function search_duckduckgo at 0x0000018C66E6D3A0>, <function question_user at 0x0000018C66EAE340>, <function memory_read at 0x0000018C66ECDD00>, <function memory_write at 0x0000018C66EAEC00>]
+2026-07-17 22:47:27,828 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000018C66D8E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:47:28,051 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:47:28,526 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:47:28,528 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:47:29,686 INFO Выброн режим работы с инструментами
+2026-07-17 22:47:32,505 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'AssistantResponse' object has no attribute 'toString'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 138, in <lambda>
+    ai_histori(msg.toString()),
+               ^^^^^^^^^^^^
+AttributeError: 'AssistantResponse' object has no attribute 'toString'
+2026-07-17 22:49:42,993 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:49:42,994 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:49:42,997 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000018C66D8E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:49:46,575 INFO вызвон инструмент read_folder
+2026-07-17 22:49:46,576 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:49:46,576 INFO ['mge', 'system']
+2026-07-17 22:49:56,503 INFO вызвон инструмент read_folder
+2026-07-17 22:49:56,504 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:49:56,505 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'g.json', 'test.json', 'гоол.json']
+2026-07-17 22:49:56,505 INFO вызвон инструмент read_folder
+2026-07-17 22:49:56,506 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:49:56,506 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'g.json', 'test.json', 'гоол.json']
+2026-07-17 22:49:59,103 INFO выбран профиль system
+2026-07-17 22:49:59,103 INFO вызвон инструмент read_folder
+2026-07-17 22:49:59,104 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:49:59,105 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:50:05,471 INFO вызвон инструмент read_folder
+2026-07-17 22:50:05,472 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:50:05,472 INFO ['mge', 'system']
+2026-07-17 22:50:08,519 INFO вызвон инструмент read_folder
+2026-07-17 22:50:08,521 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:50:08,521 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'g.json', 'test.json', 'гоол.json']
+2026-07-17 22:50:08,521 INFO вызвон инструмент read_folder
+2026-07-17 22:50:08,522 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 22:50:08,523 INFO ['1.json', '2.json', '3.json', '4.json', '5.json', '6.json', 'g.json', 'test.json', 'гоол.json']
+2026-07-17 22:50:12,279 INFO выбран профиль system
+2026-07-17 22:50:12,279 INFO вызвон инструмент read_folder
+2026-07-17 22:50:12,280 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 22:50:12,280 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:50:12,280 INFO вызвон инструмент read_file
+2026-07-17 22:50:12,282 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:50:12,284 INFO вызвон инструмент read_file
+2026-07-17 22:50:12,286 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 22:50:12,287 INFO загружен системный промт
+2026-07-17 22:50:12,287 INFO инстурменты установлены
+2026-07-17 22:50:12,287 INFO [<function create_file at 0x00000200B987E480>, <function read_file at 0x00000200B987E3E0>, <function write_file at 0x00000200B987E2A0>, <function read_folder at 0x00000200B987E200>, <function create_folder at 0x00000200B987E160>, <function extract_text_from_url at 0x00000200B987D3A0>, <function search_duckduckgo at 0x00000200B98413A0>, <function question_user at 0x00000200B987E340>, <function memory_read at 0x00000200B989DD00>, <function memory_write at 0x00000200B987EC00>]
+2026-07-17 22:50:12,292 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000200B977E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:50:12,533 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:50:13,016 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:50:13,020 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:50:15,495 INFO Выброн режим работы с инструментами
+2026-07-17 22:50:21,128 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError('Object of type TextData is not JSON serializable')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 138, in <lambda>
+    ai_histori(msg.content),
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    entry_history(pyti,message,'assistant',session)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\tools_app.py", line 117, in entry_history
+    json.dump(data, f)
+    ~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 181, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 435, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 328, in _iterencode_list
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 409, in _iterencode_dict
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 328, in _iterencode_list
+    yield from chunks
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 442, in _iterencode
+    o = _default(o)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type TextData is not JSON serializable
+2026-07-17 22:52:49,353 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:52:49,354 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:52:49,354 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000200B977E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:56:32,999 INFO вызвон инструмент read_folder
+2026-07-17 22:56:33,001 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:56:33,001 INFO ['mge', 'system']
+2026-07-17 22:56:35,663 INFO вызвон инструмент read_folder
+2026-07-17 22:56:35,665 INFO User одобрил чтение папки system_file/profile/mge/history
+2026-07-17 22:56:35,665 INFO []
+2026-07-17 22:56:39,207 INFO выбран профиль mge
+2026-07-17 22:56:39,207 INFO вызвон инструмент read_folder
+2026-07-17 22:56:39,208 INFO User одобрил чтение папки system_file/profile/mge
+2026-07-17 22:56:39,208 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:56:39,209 INFO вызвон инструмент read_file
+2026-07-17 22:56:39,231 INFO чтение файла system_file/profile/mge/promt.txt
+2026-07-17 22:56:39,232 INFO вызвон инструмент read_file
+2026-07-17 22:56:39,234 INFO чтение файла system_file/profile/mge/promt.txt
+2026-07-17 22:56:39,234 INFO загружен системный промт
+2026-07-17 22:56:39,240 INFO инстурменты установлены
+2026-07-17 22:56:39,240 INFO [<function create_file at 0x000001B4D6D7E480>, <function read_file at 0x000001B4D6D7E3E0>, <function write_file at 0x000001B4D6D7E2A0>, <function read_folder at 0x000001B4D6D7E200>, <function create_folder at 0x000001B4D6D7E160>, <function extract_text_from_url at 0x000001B4D6D7D3A0>, <function search_duckduckgo at 0x000001B4D6D413A0>, <function memory_read at 0x000001B4D6D9DD00>, <function memory_write at 0x000001B4D6D7EC00>]
+2026-07-17 22:56:39,245 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001B4D6C7E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:56:39,469 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:56:39,955 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:56:39,960 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:56:41,880 INFO Выброн режим работы с инструментами
+2026-07-17 22:56:45,644 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\\\\u041f\\\\u0440\\\\u0438\\\\u0432\\\\u0435\\\\u0442. \\\\u0427\\\\u0442\\\\u043e \\\\u0442\\\\u0435\\\\u0431\\\\u0435 \\\\u043d\\\\u0443\\\\u0436\\\\u043d\\\\u043e, \\\\u0431\\\\u0440\\\\u0430\\\\u0442\\\\u043e\\\\u043a? \\\\u0413\\\\u043e\\\\u0432\\\\u043e\\\\u0440\\\\u0438 \\\\u043f\\\\u043e \\\\u0434\\\\u0435\\\\u043b\\\\u0443. \\\\u0423 \\\\u043c\\\\u0435\\\\u043d\\\\u044f \\\\u043d\\\\u0435\\\\u0442 \\\\u0432\\\\u0440\\\\u0435\\\\u043c\\\\u0435\\\\u043d\\\\u0438 \\\\u043d\\\\u0430 \\\\u043f\\\\u0443\\\\u0441\\\\u0442\\\\u044b\\\\u0435 \\\\u0440\\\\u0430\\\\u0437\\\\u0433\\\\u043e\\\\u0432\\\\u043e\\\\u0440\\\\u044b, \\\\u0443 \\\\u043c\\\\u0435\\\\u043d\\\\u044f \\\\u0441\\\\u0432\\\\u043e\\\\u0438 \\\\u0442\\\\u0440\\\\u0435\\\\u043d\\\\u0438\\\\u0440\\\\u043e\\\\u0432\\\\u043a\\\\u0438 \\\\u0438 \\\\u0430\\\\u0438\\\\u043c \\\\u043d\\\\u0430\\\\u0434\\\\u043e \\\\u043e\\\\u0442\\\\u0442\\\\u0430\\\\u0447\\\\u0438\\\\u0432\\\\u0430\\\\u0442\\\\u044c.\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 140, in <lambda>
+    chat.add_assistant_response(msg),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "\u041f\u0440\u0438\u0432\u0435\u0442. \u0427\u0442\u043e \u0442\u0435\u0431\u0435 \u043d\u0443\u0436\u043d\u043e, \u0431\u0440\u0430\u0442\u043e\u043a? \u0413\u043e\u0432\u043e\u0440\u0438 \u043f\u043e \u0434\u0435\u043b\u0443. \u0423 \u043c\u0435\u043d\u044f \u043d\u0435\u0442 \u0432\u0440\u0435\u043c\u0435\u043d\u0438 \u043d\u0430 \u043f\u0443\u0441\u0442\u044b\u0435 \u0440\u0430\u0437\u0433\u043e\u0432\u043e\u0440\u044b, \u0443 \u043c\u0435\u043d\u044f \u0441\u0432\u043e\u0438 \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0438 \u0438 \u0430\u0438\u043c \u043d\u0430\u0434\u043e \u043e\u0442\u0442\u0430\u0447\u0438\u0432\u0430\u0442\u044c.",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-17 22:59:11,127 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:59:11,128 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:59:11,130 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001B4D6C7E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 22:59:14,456 INFO вызвон инструмент read_folder
+2026-07-17 22:59:14,457 INFO User одобрил чтение папки system_file/profile
+2026-07-17 22:59:14,457 INFO ['mge', 'system']
+2026-07-17 22:59:16,615 INFO вызвон инструмент read_folder
+2026-07-17 22:59:16,616 INFO User одобрил чтение папки system_file/profile/mge/history
+2026-07-17 22:59:16,616 INFO ['gool.json']
+2026-07-17 22:59:16,617 INFO вызвон инструмент read_folder
+2026-07-17 22:59:16,617 INFO User одобрил чтение папки system_file/profile/mge/history
+2026-07-17 22:59:16,617 INFO ['gool.json']
+2026-07-17 22:59:22,455 INFO выбран профиль mge
+2026-07-17 22:59:22,455 INFO вызвон инструмент read_folder
+2026-07-17 22:59:22,456 INFO User одобрил чтение папки system_file/profile/mge
+2026-07-17 22:59:22,456 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 22:59:22,456 INFO вызвон инструмент read_file
+2026-07-17 22:59:22,458 INFO чтение файла system_file/profile/mge/promt.txt
+2026-07-17 22:59:22,461 INFO вызвон инструмент read_file
+2026-07-17 22:59:22,462 INFO чтение файла system_file/profile/mge/promt.txt
+2026-07-17 22:59:22,463 INFO загружен системный промт
+2026-07-17 22:59:22,463 INFO инстурменты установлены
+2026-07-17 22:59:22,463 INFO [<function create_file at 0x000001265799E480>, <function read_file at 0x000001265799E3E0>, <function write_file at 0x000001265799E2A0>, <function read_folder at 0x000001265799E200>, <function create_folder at 0x000001265799E160>, <function extract_text_from_url at 0x000001265799D3A0>, <function search_duckduckgo at 0x000001265795D3A0>, <function memory_read at 0x00000126579BDD00>, <function memory_write at 0x000001265799EC00>]
+2026-07-17 22:59:22,467 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001265787E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 22:59:22,693 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 22:59:23,183 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 22:59:23,187 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 22:59:25,103 INFO Выброн режим работы с инструментами
+2026-07-17 22:59:29,591 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError('list indices must be integers or slices, not str')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 138, in <lambda>
+    ai_histori(msg.content),
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    print(f"Обработка текста: {text["text"]}")
+                               ~~~~^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2026-07-17 23:02:58,269 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:02:58,269 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:02:58,271 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001265787E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 23:03:01,816 INFO вызвон инструмент read_folder
+2026-07-17 23:03:01,817 INFO User одобрил чтение папки system_file/profile
+2026-07-17 23:03:01,818 INFO ['mge', 'system']
+2026-07-17 23:03:04,176 INFO вызвон инструмент read_folder
+2026-07-17 23:03:04,177 INFO User одобрил чтение папки system_file/profile/mge/history
+2026-07-17 23:03:04,177 INFO ['4.json', 'gool.json']
+2026-07-17 23:03:04,177 INFO вызвон инструмент read_folder
+2026-07-17 23:03:04,178 INFO User одобрил чтение папки system_file/profile/mge/history
+2026-07-17 23:03:04,178 INFO ['4.json', 'gool.json']
+2026-07-17 23:03:05,679 INFO выбран профиль mge
+2026-07-17 23:03:05,679 INFO вызвон инструмент read_folder
+2026-07-17 23:03:05,680 INFO User одобрил чтение папки system_file/profile/mge
+2026-07-17 23:03:05,680 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 23:03:15,664 INFO вызвон инструмент read_folder
+2026-07-17 23:03:15,665 INFO User одобрил чтение папки system_file/profile
+2026-07-17 23:03:15,666 INFO ['mge', 'system']
+2026-07-17 23:03:18,502 INFO вызвон инструмент read_folder
+2026-07-17 23:03:18,503 INFO User одобрил чтение папки system_file/profile/mge/history
+2026-07-17 23:03:18,504 INFO ['4.json', 'gool.json']
+2026-07-17 23:03:18,504 INFO вызвон инструмент read_folder
+2026-07-17 23:03:18,504 INFO User одобрил чтение папки system_file/profile/mge/history
+2026-07-17 23:03:18,505 INFO ['4.json', 'gool.json']
+2026-07-17 23:03:20,856 INFO выбран профиль mge
+2026-07-17 23:03:20,856 INFO вызвон инструмент read_folder
+2026-07-17 23:03:20,857 INFO User одобрил чтение папки system_file/profile/mge
+2026-07-17 23:03:20,857 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 23:03:20,857 INFO вызвон инструмент read_file
+2026-07-17 23:03:20,860 INFO чтение файла system_file/profile/mge/promt.txt
+2026-07-17 23:03:20,862 INFO вызвон инструмент read_file
+2026-07-17 23:03:20,864 INFO чтение файла system_file/profile/mge/promt.txt
+2026-07-17 23:03:20,864 INFO загружен системный промт
+2026-07-17 23:03:20,864 INFO инстурменты установлены
+2026-07-17 23:03:20,864 INFO [<function create_file at 0x000002639A582480>, <function read_file at 0x000002639A5823E0>, <function write_file at 0x000002639A5822A0>, <function read_folder at 0x000002639A582200>, <function create_folder at 0x000002639A582160>, <function extract_text_from_url at 0x000002639A5813A0>, <function search_duckduckgo at 0x000002639A5413A0>, <function memory_read at 0x000002639A59DD00>, <function memory_write at 0x000002639A582C00>]
+2026-07-17 23:03:20,869 INFO {"client": "<lmstudio.sync_api.Client object at 0x000002639A47E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 23:03:21,099 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 23:03:21,587 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 23:03:21,591 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:03:22,839 INFO Выброн режим работы с инструментами
+2026-07-17 23:03:28,048 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'list' object has no attribute 'find'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 141, in <lambda>
+    ai_histori(msg.content),
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    start = text.find("=")
+            ^^^^^^^^^
+AttributeError: 'list' object has no attribute 'find'
+2026-07-17 23:04:50,136 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:04:50,136 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:04:50,139 INFO {"client": "<lmstudio.sync_api.Client object at 0x000002639A47E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 23:07:16,975 INFO вызвон инструмент read_folder
+2026-07-17 23:07:16,977 INFO User одобрил чтение папки system_file/profile
+2026-07-17 23:07:16,977 INFO ['mge', 'system']
+2026-07-17 23:07:19,895 INFO вызвон инструмент read_folder
+2026-07-17 23:07:19,896 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:07:19,896 INFO []
+2026-07-17 23:07:22,104 INFO выбран профиль system
+2026-07-17 23:07:22,104 INFO вызвон инструмент read_folder
+2026-07-17 23:07:22,105 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 23:07:22,105 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 23:07:22,105 INFO вызвон инструмент read_file
+2026-07-17 23:07:22,107 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:07:22,109 INFO вызвон инструмент read_file
+2026-07-17 23:07:22,111 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:07:22,111 INFO загружен системный промт
+2026-07-17 23:07:22,112 INFO инстурменты установлены
+2026-07-17 23:07:22,112 INFO [<function create_file at 0x000001CCE2E8E480>, <function read_file at 0x000001CCE2E8E3E0>, <function write_file at 0x000001CCE2E8E2A0>, <function read_folder at 0x000001CCE2E8E200>, <function create_folder at 0x000001CCE2E8E160>, <function extract_text_from_url at 0x000001CCE2E8D3A0>, <function search_duckduckgo at 0x000001CCE2E513A0>, <function question_user at 0x000001CCE2E8E340>, <function memory_read at 0x000001CCE2EADD00>, <function memory_write at 0x000001CCE2E8EC00>]
+2026-07-17 23:07:22,116 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001CCE2D82510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 23:07:22,349 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 23:07:22,844 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 23:07:22,845 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:07:24,183 INFO Выброн режим работы с инструментами
+2026-07-17 23:07:29,163 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError('list indices must be integers or slices, not str')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 139, in <lambda>
+    ai_histori(msg.content),
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    clear = text['TextData']
+            ~~~~^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2026-07-17 23:07:32,641 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "TypeError('list indices must be integers or slices, not str')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 139, in <lambda>
+    ai_histori(msg.content),
+    ~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 98, in ai_histori
+    clear = text['TextData']
+            ~~~~^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2026-07-17 23:08:05,912 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:08:05,913 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:08:05,913 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001CCE2D82510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 23:10:43,432 INFO вызвон инструмент read_folder
+2026-07-17 23:10:43,433 INFO User одобрил чтение папки system_file/profile
+2026-07-17 23:10:43,433 INFO ['mge', 'system']
+2026-07-17 23:10:45,904 INFO вызвон инструмент read_folder
+2026-07-17 23:10:45,905 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:10:45,905 INFO ['gol.json']
+2026-07-17 23:10:45,905 INFO вызвон инструмент read_folder
+2026-07-17 23:10:45,906 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:10:45,907 INFO ['gol.json']
+2026-07-17 23:10:47,624 INFO выбран профиль system
+2026-07-17 23:10:47,624 INFO вызвон инструмент read_folder
+2026-07-17 23:10:47,625 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 23:10:47,625 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 23:10:47,625 INFO вызвон инструмент read_file
+2026-07-17 23:10:47,627 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:10:47,630 INFO вызвон инструмент read_file
+2026-07-17 23:10:47,632 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:10:47,632 INFO загружен системный промт
+2026-07-17 23:10:47,632 INFO инстурменты установлены
+2026-07-17 23:10:47,632 INFO [<function create_file at 0x000001E58C17E480>, <function read_file at 0x000001E58C17E3E0>, <function write_file at 0x000001E58C17E2A0>, <function read_folder at 0x000001E58C17E200>, <function create_folder at 0x000001E58C17E160>, <function extract_text_from_url at 0x000001E58C17D3A0>, <function search_duckduckgo at 0x000001E58C1413A0>, <function question_user at 0x000001E58C17E340>, <function memory_read at 0x000001E58C19DD00>, <function memory_write at 0x000001E58C17EC00>]
+2026-07-17 23:10:47,636 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001E58C07E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 23:10:47,862 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 23:10:48,344 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 23:10:48,348 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:10:49,303 INFO Выброн режим работы с инструментами
+2026-07-17 23:10:52,504 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "AttributeError(\"'AssistantResponse' object has no attribute 'get_text'\")", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 138, in <lambda>
+    ai_histori(msg.get_text()),
+               ^^^^^^^^^^^^
+AttributeError: 'AssistantResponse' object has no attribute 'get_text'
+2026-07-17 23:12:11,340 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:12:11,340 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:12:11,342 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001E58C07E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 23:12:14,159 INFO вызвон инструмент read_folder
+2026-07-17 23:12:14,160 INFO User одобрил чтение папки system_file/profile
+2026-07-17 23:12:14,161 INFO ['mge', 'system']
+2026-07-17 23:12:17,664 INFO вызвон инструмент read_folder
+2026-07-17 23:12:17,665 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:12:17,665 INFO ['fdsf.json', 'gol.json']
+2026-07-17 23:12:17,665 INFO вызвон инструмент read_folder
+2026-07-17 23:12:17,666 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:12:17,666 INFO ['fdsf.json', 'gol.json']
+2026-07-17 23:12:20,160 INFO выбран профиль system
+2026-07-17 23:12:20,160 INFO вызвон инструмент read_folder
+2026-07-17 23:12:20,161 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 23:12:20,161 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 23:12:20,161 INFO вызвон инструмент read_file
+2026-07-17 23:12:20,163 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:12:20,164 INFO вызвон инструмент read_file
+2026-07-17 23:12:20,165 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:12:20,166 INFO загружен системный промт
+2026-07-17 23:12:20,166 INFO инстурменты установлены
+2026-07-17 23:12:20,166 INFO [<function create_file at 0x00000186037AE480>, <function read_file at 0x00000186037AE3E0>, <function write_file at 0x00000186037AE2A0>, <function read_folder at 0x00000186037AE200>, <function create_folder at 0x00000186037AE160>, <function extract_text_from_url at 0x00000186037AD3A0>, <function search_duckduckgo at 0x000001860376D3A0>, <function question_user at 0x00000186037AE340>, <function memory_read at 0x00000186037CDD00>, <function memory_write at 0x00000186037AEC00>]
+2026-07-17 23:12:20,172 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001860368E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 23:12:20,400 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 23:12:20,882 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 23:12:20,886 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:12:21,920 INFO Выброн режим работы с инструментами
+2026-07-17 23:12:27,598 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\\\\u041f\\\\u0440\\\\u0438\\\\u0432\\\\u0435\\\\u0442! \\\\u0427\\\\u0435\\\\u043c \\\\u044f \\\\u043c\\\\u043e\\\\u0433\\\\u0443 \\\\u0442\\\\u0435\\\\u0431\\\\u0435 \\\\u043f\\\\u043e\\\\u043c\\\\u043e\\\\u0447\\\\u044c \\\\u0441\\\\u0435\\\\u0433\\\\u043e\\\\u0434\\\\u043d\\\\u044f?\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 140, in <lambda>
+    chat.add_assistant_response(msg),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "\u041f\u0440\u0438\u0432\u0435\u0442! \u0427\u0435\u043c \u044f \u043c\u043e\u0433\u0443 \u0442\u0435\u0431\u0435 \u043f\u043e\u043c\u043e\u0447\u044c \u0441\u0435\u0433\u043e\u0434\u043d\u044f?",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-17 23:14:58,323 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:14:58,324 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:14:58,326 INFO {"client": "<lmstudio.sync_api.Client object at 0x000001860368E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 23:15:01,375 INFO вызвон инструмент read_folder
+2026-07-17 23:15:01,377 INFO User одобрил чтение папки system_file/profile
+2026-07-17 23:15:01,377 INFO ['mge', 'system']
+2026-07-17 23:15:04,688 INFO вызвон инструмент read_folder
+2026-07-17 23:15:04,689 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:15:04,689 INFO ['fdsf.json', 'gol.json']
+2026-07-17 23:15:04,690 INFO вызвон инструмент read_folder
+2026-07-17 23:15:04,690 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:15:04,691 INFO ['fdsf.json', 'gol.json']
+2026-07-17 23:15:06,992 INFO выбран профиль system
+2026-07-17 23:15:06,992 INFO вызвон инструмент read_folder
+2026-07-17 23:15:06,993 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 23:15:06,993 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 23:15:06,993 INFO вызвон инструмент read_file
+2026-07-17 23:15:06,995 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:15:06,997 INFO вызвон инструмент read_file
+2026-07-17 23:15:07,000 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:15:07,000 INFO загружен системный промт
+2026-07-17 23:15:07,000 INFO инстурменты установлены
+2026-07-17 23:15:07,000 INFO [<function create_file at 0x00000184B309E480>, <function read_file at 0x00000184B309E3E0>, <function write_file at 0x00000184B309E2A0>, <function read_folder at 0x00000184B309E200>, <function create_folder at 0x00000184B309E160>, <function extract_text_from_url at 0x00000184B309D3A0>, <function search_duckduckgo at 0x00000184B30613A0>, <function question_user at 0x00000184B309E340>, <function memory_read at 0x00000184B30BDD00>, <function memory_write at 0x00000184B309EC00>]
+2026-07-17 23:15:07,006 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000184B1F7E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 23:15:07,234 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 23:15:07,728 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 23:15:07,732 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:15:09,119 INFO Выброн режим работы с инструментами
+2026-07-17 23:15:11,384 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 160, in <lambda>
+    chat.add_assistant_response(msg),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-17 23:16:43,578 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:16:43,578 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:16:43,582 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000184B1F7E510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-17 23:18:17,079 INFO вызвон инструмент read_folder
+2026-07-17 23:18:17,081 INFO User одобрил чтение папки system_file/profile
+2026-07-17 23:18:17,081 INFO ['mge', 'system']
+2026-07-17 23:18:19,967 INFO вызвон инструмент read_folder
+2026-07-17 23:18:19,969 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:18:19,969 INFO ['asda.json', 'fdsf.json', 'gol.json']
+2026-07-17 23:18:19,969 INFO вызвон инструмент read_folder
+2026-07-17 23:18:19,970 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-17 23:18:19,970 INFO ['asda.json', 'fdsf.json', 'gol.json']
+2026-07-17 23:18:22,576 INFO выбран профиль system
+2026-07-17 23:18:22,576 INFO вызвон инструмент read_folder
+2026-07-17 23:18:22,577 INFO User одобрил чтение папки system_file/profile/system
+2026-07-17 23:18:22,577 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-17 23:18:22,577 INFO вызвон инструмент read_file
+2026-07-17 23:18:22,580 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:18:22,582 INFO вызвон инструмент read_file
+2026-07-17 23:18:22,584 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-17 23:18:22,584 INFO загружен системный промт
+2026-07-17 23:18:22,584 INFO инстурменты установлены
+2026-07-17 23:18:22,584 INFO [<function create_file at 0x0000021C4AF7E480>, <function read_file at 0x0000021C4AF7E3E0>, <function write_file at 0x0000021C4AF7E2A0>, <function read_folder at 0x0000021C4AF7E200>, <function create_folder at 0x0000021C4AF7E160>, <function extract_text_from_url at 0x0000021C4AF7D3A0>, <function search_duckduckgo at 0x0000021C4AF3D3A0>, <function question_user at 0x0000021C4AF7E340>, <function memory_read at 0x0000021C4AF9DD00>, <function memory_write at 0x0000021C4AF7EC00>]
+2026-07-17 23:18:22,589 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000021C4AE7E510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-17 23:18:22,842 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-17 23:18:23,339 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-17 23:18:23,343 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-17 23:18:24,432 INFO Выброн режим работы с инструментами
+2026-07-17 23:18:28,331 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 119, in handle_on_message
+    chat.add_assistant_response(msg)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-17 23:18:37,944 ERROR {"event": "Final response message callback failed for LLM(identifier='gemma-4-e2b-it')", "exc": "LMStudioValueError('Unable to parse assistant response content: AssistantResponse.from_dict({\\n  \"content\": [\\n    {\\n      \"text\": \"\",\\n      \"type\": \"text\"\\n    }\\n  ],\\n  \"role\": \"assistant\"\\n})')", "model_identifier": "gemma-4-e2b-it"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1492, in act
+    on_message(agent_chat.add_assistant_response(prediction))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\app.py", line 119, in handle_on_message
+    chat.add_assistant_response(msg)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+lmstudio.LMStudioValueError: Unable to parse assistant response content: AssistantResponse.from_dict({
+  "content": [
+    {
+      "text": "",
+      "type": "text"
+    }
+  ],
+  "role": "assistant"
+})
+2026-07-18 17:52:02,664 INFO вызвон инструмент read_folder
+2026-07-18 17:52:02,677 INFO User одобрил чтение папки system_file/profile
+2026-07-18 17:52:02,678 INFO ['mge', 'system']
+2026-07-18 17:52:05,073 INFO вызвон инструмент read_folder
+2026-07-18 17:52:05,074 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:52:05,075 INFO ['adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:52:05,075 INFO вызвон инструмент read_folder
+2026-07-18 17:52:05,076 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:52:05,076 INFO ['adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:52:07,529 INFO выбран профиль system
+2026-07-18 17:52:07,529 INFO вызвон инструмент read_folder
+2026-07-18 17:52:07,530 INFO User одобрил чтение папки system_file/profile/system
+2026-07-18 17:52:07,531 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-18 17:52:07,531 INFO вызвон инструмент read_file
+2026-07-18 17:52:07,540 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-18 17:52:07,541 INFO вызвон инструмент read_file
+2026-07-18 17:52:07,543 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-18 17:52:07,543 INFO загружен системный промт
+2026-07-18 17:52:07,549 INFO инстурменты установлены
+2026-07-18 17:52:07,549 INFO [<function create_file at 0x00000231A2D7E480>, <function read_file at 0x00000231A2D7E3E0>, <function write_file at 0x00000231A2D7E2A0>, <function read_folder at 0x00000231A2D7E200>, <function create_folder at 0x00000231A2D7E160>, <function extract_text_from_url at 0x00000231A2D7D3A0>, <function search_duckduckgo at 0x00000231A2D413A0>, <function question_user at 0x00000231A2D7E340>, <function memory_read at 0x00000231A2DA5D00>, <function memory_write at 0x00000231A2D7EC00>]
+2026-07-18 17:52:07,570 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000231A2C7A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-18 17:52:07,809 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-18 17:52:08,311 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-18 17:52:08,315 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:52:09,809 INFO Выброн режим работы с инструментами
+2026-07-18 17:52:22,689 ERROR {"endpoint": "predict", "event": "Prediction fragment callback failed for <lmstudio.json_api.ChatResponseEndpoint object at 0x00000231A2C7B620>", "exc": "TypeError('write() argument must be str, not LlmPredictionFragment')"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\json_api.py", line 1467, in handle_rx_event
+    self._on_prediction_fragment(_fragment)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1390, in _wrapped_on_prediction_fragment
+    on_prediction_fragment(fragment, round_index)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\tools_app.py", line 108, in print_fragment
+    file.write(fragment)
+    ~~~~~~~~~~^^^^^^^^^^
+TypeError: write() argument must be str, not LlmPredictionFragment
+2026-07-18 17:52:22,715 ERROR {"endpoint": "predict", "event": "Prediction fragment callback failed for <lmstudio.json_api.ChatResponseEndpoint object at 0x00000231A2C7B620>", "exc": "TypeError('write() argument must be str, not LlmPredictionFragment')"}
+Traceback (most recent call last):
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\json_api.py", line 1467, in handle_rx_event
+    self._on_prediction_fragment(_fragment)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Кирилл\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\lmstudio\sync_api.py", line 1390, in _wrapped_on_prediction_fragment
+    on_prediction_fragment(fragment, round_index)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кирилл\Documents\tools\ai-tools\tools_app.py", line 108, in print_fragment
+    file.write(fragment)
+    ~~~~~~~~~~^^^^^^^^^^
+TypeError: write() argument must be str, not LlmPredictionFragment
+2026-07-18 17:53:01,903 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:53:01,904 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:53:01,906 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000231A2C7A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-18 17:53:05,322 INFO вызвон инструмент read_folder
+2026-07-18 17:53:05,323 INFO User одобрил чтение папки system_file/profile
+2026-07-18 17:53:05,323 INFO ['mge', 'system']
+2026-07-18 17:53:08,898 INFO вызвон инструмент read_folder
+2026-07-18 17:53:08,899 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:53:08,899 INFO ['3.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:53:08,900 INFO вызвон инструмент read_folder
+2026-07-18 17:53:08,901 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:53:08,901 INFO ['3.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:53:10,554 INFO выбран профиль system
+2026-07-18 17:53:10,554 INFO вызвон инструмент read_folder
+2026-07-18 17:53:10,555 INFO User одобрил чтение папки system_file/profile/system
+2026-07-18 17:53:10,555 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-18 17:53:14,865 INFO вызвон инструмент read_folder
+2026-07-18 17:53:14,866 INFO User одобрил чтение папки system_file/profile
+2026-07-18 17:53:14,867 INFO ['mge', 'system']
+2026-07-18 17:53:17,146 INFO вызвон инструмент read_folder
+2026-07-18 17:53:17,147 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:53:17,147 INFO ['3.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:53:17,147 INFO вызвон инструмент read_folder
+2026-07-18 17:53:17,148 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:53:17,148 INFO ['3.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:53:20,282 INFO выбран профиль system
+2026-07-18 17:53:20,282 INFO вызвон инструмент read_folder
+2026-07-18 17:53:20,283 INFO User одобрил чтение папки system_file/profile/system
+2026-07-18 17:53:20,283 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-18 17:53:20,283 INFO вызвон инструмент read_file
+2026-07-18 17:53:20,285 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-18 17:53:20,287 INFO вызвон инструмент read_file
+2026-07-18 17:53:20,289 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-18 17:53:20,289 INFO загружен системный промт
+2026-07-18 17:53:20,289 INFO инстурменты установлены
+2026-07-18 17:53:20,289 INFO [<function create_file at 0x0000012B8937E480>, <function read_file at 0x0000012B8937E3E0>, <function write_file at 0x0000012B8937E2A0>, <function read_folder at 0x0000012B8937E200>, <function create_folder at 0x0000012B8937E160>, <function extract_text_from_url at 0x0000012B8937D3A0>, <function search_duckduckgo at 0x0000012B8933D3A0>, <function question_user at 0x0000012B8937E340>, <function memory_read at 0x0000012B8939DD00>, <function memory_write at 0x0000012B8937EC00>]
+2026-07-18 17:53:20,295 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000012B8927A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-18 17:53:20,513 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-18 17:53:20,988 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-18 17:53:20,991 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:53:22,385 INFO Выброн режим работы с инструментами
+2026-07-18 17:55:28,802 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:55:28,803 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:55:28,804 INFO {"client": "<lmstudio.sync_api.Client object at 0x0000012B8927A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-18 17:55:33,465 INFO вызвон инструмент read_folder
+2026-07-18 17:55:33,473 INFO User одобрил чтение папки system_file/profile
+2026-07-18 17:55:33,473 INFO ['mge', 'system']
+2026-07-18 17:55:37,530 INFO вызвон инструмент read_folder
+2026-07-18 17:55:37,531 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:55:37,532 INFO ['3.json', '5.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:55:37,532 INFO вызвон инструмент read_folder
+2026-07-18 17:55:37,533 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:55:37,533 INFO ['3.json', '5.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:55:38,897 INFO выбран профиль system
+2026-07-18 17:55:38,897 INFO вызвон инструмент read_folder
+2026-07-18 17:55:38,898 INFO User одобрил чтение папки system_file/profile/system
+2026-07-18 17:55:38,899 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-18 17:55:42,929 INFO вызвон инструмент read_folder
+2026-07-18 17:55:42,931 INFO User одобрил чтение папки system_file/profile
+2026-07-18 17:55:42,931 INFO ['mge', 'system']
+2026-07-18 17:55:45,089 INFO вызвон инструмент read_folder
+2026-07-18 17:55:45,090 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:55:45,090 INFO ['3.json', '5.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:55:45,090 INFO вызвон инструмент read_folder
+2026-07-18 17:55:45,091 INFO User одобрил чтение папки system_file/profile/system/history
+2026-07-18 17:55:45,091 INFO ['3.json', '5.json', 'adsa.json', 'asda.json', 'fdsf.json', 'gol.json']
+2026-07-18 17:55:47,568 INFO выбран профиль system
+2026-07-18 17:55:47,569 INFO вызвон инструмент read_folder
+2026-07-18 17:55:47,570 INFO User одобрил чтение папки system_file/profile/system
+2026-07-18 17:55:47,570 INFO ['history', 'memory.txt', 'promt.txt', 'tools.json']
+2026-07-18 17:55:47,570 INFO вызвон инструмент read_file
+2026-07-18 17:55:47,579 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-18 17:55:47,580 INFO вызвон инструмент read_file
+2026-07-18 17:55:47,582 INFO чтение файла system_file/profile/system/promt.txt
+2026-07-18 17:55:47,582 INFO загружен системный промт
+2026-07-18 17:55:47,588 INFO инстурменты установлены
+2026-07-18 17:55:47,588 INFO [<function create_file at 0x00000211A757E480>, <function read_file at 0x00000211A757E3E0>, <function write_file at 0x00000211A757E2A0>, <function read_folder at 0x00000211A757E200>, <function create_folder at 0x00000211A757E160>, <function extract_text_from_url at 0x00000211A757D3A0>, <function search_duckduckgo at 0x00000211A753D3A0>, <function question_user at 0x00000211A757E340>, <function memory_read at 0x00000211A759DD00>, <function memory_write at 0x00000211A757EC00>]
+2026-07-18 17:55:47,607 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000211A747A510>", "event": "Websocket handling thread started", "thread_id": "Thread-1"}
+2026-07-18 17:55:47,877 INFO HTTP Request: GET http://localhost:1234/lmstudio-greeting "HTTP/1.1 200 OK"
+2026-07-18 17:55:48,365 INFO HTTP Request: GET ws://localhost:1234/llm "HTTP/1.1 101 Switching Protocols"
+2026-07-18 17:55:48,366 INFO {"event": "Websocket session established", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:55:49,705 INFO Выброн режим работы с инструментами
+2026-07-18 17:56:03,227 INFO Начат поиск по запросу: молоко
+2026-07-18 17:56:03,257 INFO Поиск завершон
+2026-07-18 17:56:06,519 INFO response: https://www.bing.com/search?q=%D0%BC%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE 200
+2026-07-18 17:57:00,908 INFO {"event": "Websocket session disconnected (ws://localhost:1234/llm)", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:57:00,909 INFO {"event": "Websocket closed.", "ws_url": "ws://localhost:1234/llm"}
+2026-07-18 17:57:00,911 INFO {"client": "<lmstudio.sync_api.Client object at 0x00000211A747A510>", "event": "Websocket thread terminated", "thread_id": "Thread-1"}
+2026-07-18 17:57:02,841 INFO вызвон инструмент read_folder
+2026-07-18 17:57:02,842 INFO User одобрил чтение папки system_file/profile
+2026-07-18 17:57:02,843 INFO ['mge', 'system']
+2026-07-18 17:57:05,002 INFO вызвон инструмент read_folder
+2026-07-18 17:57:05,003 INFO User одобрил чтение папки system_file/profile/ыныеуь/history
